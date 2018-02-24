@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-
+using Hello_World;
 namespace unit_test
 {
     public class UnitTest1
@@ -12,9 +12,9 @@ namespace unit_test
             int[] gradesDesc = { 11, 8, 5, 3, 1 };
             int[] gradesNeg = { 8, 5, 7, 6, 1 };
 
-            Assert.True(Program.IsSorted(gradesAsc , true));
-            Assert.True(Program.IsSorted(gradesDesc, false));
-            Assert.True(Program.IsSorted(gradesNeg, false));
+            Assert.False(Program.IsSorted(gradesAsc , true));
+            Assert.True(Program.IsSorted(gradesDesc, true));
+            Assert.False(Program.IsSorted(gradesNeg, false));
 
         }
     }

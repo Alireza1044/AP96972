@@ -7,10 +7,10 @@ namespace Hello_World
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            int[] gradesasc = { 1, 2, 3, 6, 9 };
+            /*int[] gradesasc = { 1, 2, 3, 6, 9 };
             int[] gradesdesc = { 11, 8, 5, 3, 1 };
             Console.WriteLine(IsSorted(gradesasc, false));
-            Console.WriteLine(IsSorted(gradesdesc, false));
+            Console.WriteLine(IsSorted(gradesdesc, false));*/
         }
         public static bool IsSorted(int[] grades, bool asc)
         {
