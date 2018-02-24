@@ -12,8 +12,8 @@ namespace unit_test
             int[] gradesDesc = { 11, 8, 5, 3, 1 };
             int[] gradesNeg = { 8, 5, 7, 6, 1 };
 
-            Assert.False(Program.IsSorted(gradesAsc , true));
-            Assert.True(Program.IsSorted(gradesDesc, true));
+            Assert.True(Program.IsSorted(gradesAsc , true));
+            Assert.True(Program.IsSorted(gradesDesc, false));
             Assert.False(Program.IsSorted(gradesNeg, false));
 
         }

@@ -19,7 +19,7 @@ namespace Hello_World
             {
                 if (asc)
                 {
-                    if (grade > LastGrade)
+                    if (grade < LastGrade)
                     {
                         return false;
                     }
@@ -31,7 +31,7 @@ namespace Hello_World
 
                 else
                 {
-                    if (grade < LastGrade)
+                    if (grade > LastGrade)
                     {
                         return false;
                     }
