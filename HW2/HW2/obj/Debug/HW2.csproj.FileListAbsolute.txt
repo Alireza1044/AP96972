@@ -1,0 +1,6 @@
+C:\Users\Alireza\Desktop\APClass\HW2\HW2\bin\Debug\HW2.exe.config
+C:\Users\Alireza\Desktop\APClass\HW2\HW2\bin\Debug\HW2.exe
+C:\Users\Alireza\Desktop\APClass\HW2\HW2\bin\Debug\HW2.pdb
+C:\Users\Alireza\Desktop\APClass\HW2\HW2\obj\Debug\HW2.csproj.CoreCompileInputs.cache
+C:\Users\Alireza\Desktop\APClass\HW2\HW2\obj\Debug\HW2.exe
+C:\Users\Alireza\Desktop\APClass\HW2\HW2\obj\Debug\HW2.pdb
