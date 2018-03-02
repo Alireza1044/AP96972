@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A2B00CD1-5169-4E7C-9D6B-E7CDFFCDB5EF}</ProjectGuid>
+    <ProjectGuid>{2E0AF4A0-6E22-4EA0-A105-787F044D6290}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HW2Tests1</RootNamespace>
-    <AssemblyName>HW2Tests1</AssemblyName>
+    <RootNamespace>HW2Tests</RootNamespace>
+    <AssemblyName>HW2Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HW2\HW2.csproj">
-      <Project>{0F2B3634-57A8-4FDF-B484-96240DE42295}</Project>
+      <Project>{261C2006-76C6-42B8-B83D-0CA3513CC1D9}</Project>
       <Name>HW2</Name>
     </ProjectReference>
   </ItemGroup>

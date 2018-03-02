@@ -12,7 +12,7 @@ namespace HW2.Tests
     public class ProgramTests
     {
         [TestMethod()]
-        public void EnteranceTest()
+        public void ProbabilityCounterFuncTest()
         {
             int[] Test1 = new int[] { 1, 1, 1, 2, 2, 2, 4, 4 };
             int[] Test2 = new int[] { 8, 8, 8, 8, 8, 8, 8, 8 };
