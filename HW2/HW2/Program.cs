@@ -29,7 +29,7 @@ namespace HW2
             } while (SelectedNumberForProbability != -1); //counts the probability while the entered number is not -1
         }
         /// <summary>
-        /// 
+        /// reads the numbers in string and converts them to ints
         /// </summary>
         /// <returns></returns>
         public static int[] input(TextReader inStream)
@@ -45,10 +45,10 @@ namespace HW2
             return intArrayOfEnteredNumsByUser;
         }
         /// <summary>
-        /// 
+        /// prints the result
         /// </summary>
-        /// <param name="SelectedNumberForProbability"></param>
-        /// <param name="intArrayOfEnteredNumsByUser"></param>
+        /// <param name="SelectedNumberForProbability">selected number by user to count the probability</param>
+        /// <param name="intArrayOfEnteredNumsByUser">numbers entered by user in the array</param>
         public static void output(int SelectedNumberForProbability,int[] intArrayOfEnteredNumsByUser ,TextWriter outStream)
         {
             outStream.WriteLine(ProbabilityCounterFunc(SelectedNumberForProbability, intArrayOfEnteredNumsByUser));
