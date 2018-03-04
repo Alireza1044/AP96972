@@ -44,7 +44,7 @@ namespace HW2
         public static float ProbabilityCounterFunc(int SelectedNumberForProbability, int[] intArrayOfEnteredNumsByUser)
         {
             float Counter = 0; // repeatative numbers
-            for (int i = 0; i < 8; i++) // counts the repeatative numbers
+            for (int i = 0; i < intArrayOfEnteredNumsByUser.Length; i++) // counts the repeatative numbers
             {
                 if (SelectedNumberForProbability == intArrayOfEnteredNumsByUser[i])
                 {
