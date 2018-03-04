@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HW2
 {
@@ -18,22 +19,41 @@ namespace HW2
         public static void Main(string[] args)
         {
             int SelectedNumberForProbability;
-            string TempString ;
-            TempString = Console.ReadLine(); //string of the entered numbers
-            string[] stringArrayOfEnteredNumsByUser = TempString.Split();//seperetes the numbers seperated by ' ' and saves them in a string array
-            int[] intArrayOfEnteredNumsByUser = new int[stringArrayOfEnteredNumsByUser.Length];
-            for(int i = 0; i < stringArrayOfEnteredNumsByUser.Length; i++)//saves the numbers of "stringArrayOfEnteredNumsByUser" in an in int array
-            {
-                intArrayOfEnteredNumsByUser[i] = int.Parse(stringArrayOfEnteredNumsByUser[i]);
-            }
+            int[] intArrayOfEnteredNumsByUser = input(Console.In);
             do
             {
                 SelectedNumberForProbability = int.Parse(Console.ReadLine());
                 if (SelectedNumberForProbability == -1)
                     break;
-                Console.WriteLine(ProbabilityCounterFunc(SelectedNumberForProbability, intArrayOfEnteredNumsByUser));
+                output(SelectedNumberForProbability, intArrayOfEnteredNumsByUser,Console.Out);
             } while (SelectedNumberForProbability != -1); //counts the probability while the entered number is not -1
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static int[] input(TextReader inStream)
+        {
+            string TempString;
+            TempString = inStream.ReadLine(); //string of the entered numbers
+            string[] stringArrayOfEnteredNumsByUser = TempString.Split();//seperetes the numbers seperated by ' ' and saves them in a string array
+            int[] intArrayOfEnteredNumsByUser = new int[stringArrayOfEnteredNumsByUser.Length];
+            for (int i = 0; i < stringArrayOfEnteredNumsByUser.Length; i++)//saves the numbers of "stringArrayOfEnteredNumsByUser" in an in int array
+            {
+                intArrayOfEnteredNumsByUser[i] = int.Parse(stringArrayOfEnteredNumsByUser[i]);
+            }
+            return intArrayOfEnteredNumsByUser;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="SelectedNumberForProbability"></param>
+        /// <param name="intArrayOfEnteredNumsByUser"></param>
+        public static void output(int SelectedNumberForProbability,int[] intArrayOfEnteredNumsByUser ,TextWriter outStream)
+        {
+            outStream.WriteLine(ProbabilityCounterFunc(SelectedNumberForProbability, intArrayOfEnteredNumsByUser));
+        }
+
         /// <summary>
         /// counts the probability of the entered number in the list
         /// </summary>

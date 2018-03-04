@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HW2.Tests
 {
@@ -22,6 +23,29 @@ namespace HW2.Tests
             Assert.AreEqual(0, Program.ProbabilityCounterFunc(1, Test2), 0);
             Assert.AreEqual(1, Program.ProbabilityCounterFunc(8, Test2), 0);
             Assert.AreEqual(0.5, Program.ProbabilityCounterFunc(6, Test3), 0);
+        }
+
+        [TestMethod()]
+        public void inputTest()
+        {
+            const string input = "1 2 3 4 5 6 7 8";
+            using (StringWriter writer = new StringWriter())
+            using (StringReader reader = new StringReader(input))
+            {
+                Program.input(reader);
+            }
+        }
+
+        [TestMethod()]
+        public void outputTest()
+        {
+            const string input = "1 2 3 4 5 6 7 8";
+            int[] TestArray = { 1, 2, 3, 4, 5, 6, 7, 8 };
+            using (StringWriter writer = new StringWriter())
+            using (StringReader reader = new StringReader(input))
+            {
+                Program.output(1 , TestArray , writer);
+            }
         }
     }
 }

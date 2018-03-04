@@ -1,0 +1,16 @@
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\HW2Tests.dll
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\HW2Tests.pdb
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\HW2.exe
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\HW2.pdb
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\HW2.exe.config
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\obj\Debug\HW2Tests.csprojResolveAssemblyReference.cache
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\obj\Debug\HW2Tests.csproj.CoreCompileInputs.cache
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\obj\Debug\HW2Tests.dll
+C:\Users\Alireza\Desktop\APClass\HW2\HW2Tests\obj\Debug\HW2Tests.pdb
