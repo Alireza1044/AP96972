@@ -26,13 +26,12 @@ namespace HW2
             {
                 intArrayOfEnteredNumsByUser[i] = int.Parse(stringArrayOfEnteredNumsByUser[i]);
             }
-            SelectedNumberForProbability = int.Parse(Console.ReadLine());
             do
             {
-                Console.WriteLine(ProbabilityCounterFunc(SelectedNumberForProbability, intArrayOfEnteredNumsByUser));
+                SelectedNumberForProbability = int.Parse(Console.ReadLine());
                 if (SelectedNumberForProbability == -1)
                     break;
-                SelectedNumberForProbability = int.Parse(Console.ReadLine());
+                Console.WriteLine(ProbabilityCounterFunc(SelectedNumberForProbability, intArrayOfEnteredNumsByUser));
             } while (SelectedNumberForProbability != -1); //counts the probability while the entered number is not -1
         }
         /// <summary>
@@ -53,5 +52,6 @@ namespace HW2
             }
             return Counter / 8;
         }
+
     }
 }
