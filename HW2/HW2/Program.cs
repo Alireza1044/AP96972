@@ -17,38 +17,41 @@ namespace HW2
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            int SelectedNumberforProbability;
-            int[] EnteredNumsByUser = new int[8];
-            for (int i = 0; i < 8; i++) // reads the entered numbers from user
+            int SelectedNumberForProbability;
+            string TempString ;
+            TempString = Console.ReadLine(); //string of the entered numbers
+            string[] stringArrayOfEnteredNumsByUser = TempString.Split();//seperetes the numbers seperated by ' ' and saves them in a string array
+            int[] intArrayOfEnteredNumsByUser = new int[stringArrayOfEnteredNumsByUser.Length];
+            for(int i = 0; i < stringArrayOfEnteredNumsByUser.Length; i++)//saves the numbers of "stringArrayOfEnteredNumsByUser" in an in int array
             {
-                EnteredNumsByUser[i] = int.Parse(Console.ReadLine()); //array of the entered numbers
+                intArrayOfEnteredNumsByUser[i] = int.Parse(stringArrayOfEnteredNumsByUser[i]);
             }
-            SelectedNumberforProbability = int.Parse(Console.ReadLine());
-            while (SelectedNumberforProbability != -1) //counts the probability while the entered number is not -1
+            SelectedNumberForProbability = int.Parse(Console.ReadLine());
+            do
             {
-                Console.WriteLine(ProbabilityCounterFunc(SelectedNumberforProbability, EnteredNumsByUser));
-                SelectedNumberforProbability = int.Parse(Console.ReadLine());
-            }
+                Console.WriteLine(ProbabilityCounterFunc(SelectedNumberForProbability, intArrayOfEnteredNumsByUser));
+                if (SelectedNumberForProbability == -1)
+                    break;
+                SelectedNumberForProbability = int.Parse(Console.ReadLine());
+            } while (SelectedNumberForProbability != -1); //counts the probability while the entered number is not -1
         }
         /// <summary>
         /// counts the probability of the entered number in the list
         /// </summary>
-        /// <param name="SelectedNumberforProbability"> selected number by user to count the probability </param>
-        /// <param name="EnteredNumsByUser"> numbers entered by user in the array  </param>
+        /// <param name="SelectedNumberForProbability"> selected number by user to count the probability </param>
+        /// <param name="intArrayOfEnteredNumsByUser"> numbers entered by user in the array  </param>
         /// <returns> the probability of the chosen number </returns>
-        public static float ProbabilityCounterFunc(int SelectedNumberforProbability, int[] EnteredNumsByUser)
+        public static float ProbabilityCounterFunc(int SelectedNumberForProbability, int[] intArrayOfEnteredNumsByUser)
         {
-            float Result; // probability
             float Counter = 0; // repeatative numbers
             for (int i = 0; i < 8; i++) // counts the repeatative numbers
             {
-                if (SelectedNumberforProbability == EnteredNumsByUser[i])
+                if (SelectedNumberForProbability == intArrayOfEnteredNumsByUser[i])
                 {
                     Counter++;
                 }
             }
-            Result = Counter / 8; // counts the probability
-            return Result;
+            return Counter / 8;
         }
     }
 }
