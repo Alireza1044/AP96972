@@ -29,7 +29,6 @@ namespace HW2.Tests
         public void inputTest()
         {
             const string input = "1 2 3 4 5 6 7 8";
-            using (StringWriter writer = new StringWriter())
             using (StringReader reader = new StringReader(input))
             {
                 Program.input(reader);
@@ -42,7 +41,6 @@ namespace HW2.Tests
             const string input = "1 2 3 4 5 6 7 8";
             int[] TestArray = { 1, 2, 3, 4, 5, 6, 7, 8 };
             using (StringWriter writer = new StringWriter())
-            using (StringReader reader = new StringReader(input))
             {
                 Program.output(1 , TestArray , writer);
             }
