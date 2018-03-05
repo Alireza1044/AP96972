@@ -70,7 +70,7 @@ namespace HW2
                     Counter++;
                 }
             }
-            return Counter / 8;
+            return Counter / intArrayOfEnteredNumsByUser.Length;
         }
 
     }
