@@ -11,6 +11,10 @@ namespace Assignment5
     /// </summary>
     public class Ingredient
     {
+        private double quantity;
+        private string unit;
+        private string name;
+        private string description;
         /// <summary>
         /// ایجاد شئ مشخصات یکی از مواد اولیه دستور غذا
         /// </summary>
@@ -21,6 +25,10 @@ namespace Assignment5
         public Ingredient(string name, string description, double quantity, string unit)
         {
             // بر عهده دانشجو
+            this.unit = unit;
+            this.quantity = quantity;
+            this.name = name;
+            this.description = description;
         }
 
         /// <summary>
@@ -36,12 +44,34 @@ namespace Assignment5
         /// <summary>
         /// مقدار
         /// </summary>
-        public double Quantity { get; set; }
+        public double Quantity {
+            get
+            {
+                return quantity;
+            }
+            set
+            {
+                if(value >= 0)
+                {
+                    quantity = value;
+                }
+            }
+        }
 
         /// <summary>
         /// واحد مقدار: مثلا گرم، کیلوگرم، عدد
         /// </summary>
-        public string Unit { get; set; }
+        public string Unit {
+            get
+            {
+                return unit;
+            }
+            set
+            {
+                if (value == "kg" || value == "gr" || value == "lbs" || value == "No.")
+                    unit = value;
+            }
+        }
 
         /// <summary>
         /// تبدیل به متن

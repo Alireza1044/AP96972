@@ -11,6 +11,12 @@ namespace Assignment5
     /// </summary>
     public class Recipe
     {
+        public string title;
+        public string instructions;
+        public int servingCount;
+        public string cuisine;
+        public string[] keywords;
+        public int ingredientCount;
         /// <summary>
         /// ایجاد دستور پخت جدید
         /// </summary>
@@ -23,6 +29,13 @@ namespace Assignment5
         public Recipe(string title, string instructions, Ingredient[] ingredients, int servingCount, string cuisine, string[] keywords)
         {
             // بر عهده دانشجو
+            this.title = title;
+            this.instructions = instructions;
+            this.servingCount = servingCount;
+            this.cuisine = cuisine;
+            this.keywords = keywords;
+            this.Ingredients = ingredients;
+
         }
 
         /// <summary>
@@ -37,6 +50,12 @@ namespace Assignment5
         public Recipe(string title, string instructions, int ingredientCount, int servingCount, string cuisine, string[] keywords)
         {
             // بر عهده دانشجو
+            this.title = title;
+            this.instructions = instructions;
+            this.servingCount = servingCount;
+            this.cuisine = cuisine;
+            this.keywords = keywords;
+            this.ingredientCount = ingredientCount;
         }
 
         /// <summary>
@@ -94,6 +113,17 @@ namespace Assignment5
         {
             // بر عهده دانشجو
             return null;
+        }
+        public string Title
+        {
+            get
+            {
+                return this.title;
+            }
+            set
+            {
+                title = value;
+            }
         }
     }
 }

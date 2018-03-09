@@ -11,6 +11,8 @@ namespace Assignment5
     /// </summary>
     public class RecipeBook
     {
+        public string title;
+        public int capacity;
         /// <summary>
         /// ایجاد شیء کتابچه دستور غذا
         /// </summary>
@@ -19,6 +21,8 @@ namespace Assignment5
         public RecipeBook(string title, int capacity)
         {
             // بر عهده دانشجو
+            this.title = title;
+            this.capacity = capacity;
         }
 
         /// <summary>
@@ -29,6 +33,7 @@ namespace Assignment5
         public bool Add(Recipe recipe)
         {
             // بر عهده دانشجو
+            recipeList.Add(recipe);
             return false;
 
         }
@@ -41,6 +46,13 @@ namespace Assignment5
         public bool Remove(string recipeTitle)
         {
             // بر عهده دانشجو
+            for(int i =0;i<capacity; i++)
+            {
+                if (recipeList[i].title == recipeTitle)
+                {
+                    recipeList.RemoveAt(i);
+                }
+            }
             return false;
         }
 
@@ -52,6 +64,13 @@ namespace Assignment5
         public Recipe LookupByTitle(string title)
         {
             // بر عهده دانشجو
+            for(int i = 0;i < capacity; i++)
+            {
+                if(recipeList[i].title == title)
+                {
+                    Console.WriteLine("Found!\n" + recipeList[i]);
+                }
+            }
             return null;
         }
 
@@ -63,6 +82,16 @@ namespace Assignment5
         public Recipe[] LookupByKeyword(string keyword)
         {
             // بر عهده دانشجو
+            for(int i = 0; i < capacity; i++)
+            {
+                for(int j = 0; j < capacity; j++)
+                {
+                    if(recipeList[i].keywords[j] == keyword)
+                    {
+                        Console.WriteLine("Found!\n" + recipeList[i]);
+                    }
+                }
+            }
             return null;
         }
 
@@ -74,8 +103,16 @@ namespace Assignment5
         public Recipe[] LookupByCuisine(string cuisine)
         {
             // بر عهده دانشجو
+            for(int i = 0; i < capacity; i++)
+            {
+                if(recipeList[i].cuisine == cuisine)
+                {
+                    Console.WriteLine("Found!\n" + recipeList[i]);
+                }
+            }
             return null;
         }
+        List <Recipe> recipeList = new List<Recipe> ();
 
     }
 }
