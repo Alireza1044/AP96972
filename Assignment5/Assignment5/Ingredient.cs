@@ -34,12 +34,30 @@ namespace Assignment5
         /// <summary>
         /// نام ماده اولیه
         /// </summary>
-        public string Name { get; set; }
+        public string Name {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            } 
+                }
 
         /// <summary>
         /// توضیح: از کجا پیدا کنیم یا اگر نداشتیم جایگزین چه چیزی استفاده کنیم
         /// </summary>
-        public string Description { get; set; }
+        public string Description {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                description = value;
+            }
+        }
 
         /// <summary>
         /// مقدار

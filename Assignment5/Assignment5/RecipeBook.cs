@@ -11,8 +11,8 @@ namespace Assignment5
     /// </summary>
     public class RecipeBook
     {
-        public string title;
-        public int capacity;
+        private string title;
+        private int capacity;
         /// <summary>
         /// ایجاد شیء کتابچه دستور غذا
         /// </summary>
@@ -21,10 +21,34 @@ namespace Assignment5
         public RecipeBook(string title, int capacity)
         {
             // بر عهده دانشجو
-            this.title = title;
-            this.capacity = capacity;
+            Title = title;
+            Capacity = capacity;
+            recipeList = new Recipe[capacity];
+        }
+        Recipe[] recipeList;
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
         }
 
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+            set
+            {
+                capacity = value;
+            }
+        }
         /// <summary>
         /// اضافه کردن یک دستور پخت جدید
         /// </summary>
@@ -33,9 +57,15 @@ namespace Assignment5
         public bool Add(Recipe recipe)
         {
             // بر عهده دانشجو
-            recipeList.Add(recipe);
+            for(int i = 0; i < recipeList.Length; i++)
+            {
+                if(recipeList[i] == null) 
+                {
+                    recipeList[i] = recipe;
+                    return true;
+                }
+            }
             return false;
-
         }
 
         /// <summary>
@@ -50,7 +80,12 @@ namespace Assignment5
             {
                 if (recipeList[i].title == recipeTitle)
                 {
-                    recipeList.RemoveAt(i);
+                    for(int j = i; j < recipeList.Length; j++)
+                    {
+                        recipeList[j] = recipeList[j + 1];
+                    }
+                    recipeList[recipeList.Length-1] = null;
+                    return true;
                 }
             }
             return false;
@@ -64,11 +99,11 @@ namespace Assignment5
         public Recipe LookupByTitle(string title)
         {
             // بر عهده دانشجو
-            for(int i = 0;i < capacity; i++)
+            for(int i = 0;i < recipeList.Length; i++)
             {
                 if(recipeList[i].title == title)
                 {
-                    Console.WriteLine("Found!\n" + recipeList[i]);
+                    return recipeList[i];
                 }
             }
             return null;
@@ -82,17 +117,23 @@ namespace Assignment5
         public Recipe[] LookupByKeyword(string keyword)
         {
             // بر عهده دانشجو
-            for(int i = 0; i < capacity; i++)
+            int idx = 0;
+            Recipe[] recipeSearchByKeyword = new Recipe[recipeList.Length];
+            for(int i = 0; i < recipeSearchByKeyword.Length; i++)
             {
-                for(int j = 0; j < capacity; j++)
+                for(int j = 0; j < recipeList.Length; j++)
                 {
                     if(recipeList[i].keywords[j] == keyword)
                     {
-                        Console.WriteLine("Found!\n" + recipeList[i]);
+                        recipeSearchByKeyword[idx] = recipeList[i];
+                        idx++;
                     }
                 }
             }
-            return null;
+            if (idx > 0)
+                return recipeSearchByKeyword;
+            else
+                return null;
         }
 
         /// <summary>
@@ -103,16 +144,35 @@ namespace Assignment5
         public Recipe[] LookupByCuisine(string cuisine)
         {
             // بر عهده دانشجو
-            for(int i = 0; i < capacity; i++)
+            int idx = 0;
+            Recipe[] recipeSearchByCuisine = new Recipe[recipeList.Length];
+            for(int i = 0; i < recipeSearchByCuisine.Length; i++)
             {
                 if(recipeList[i].cuisine == cuisine)
                 {
-                    Console.WriteLine("Found!\n" + recipeList[i]);
+                    recipeSearchByCuisine[idx] = recipeList[i];
+                    idx++;
                 }
             }
-            return null;
+            if (recipeSearchByCuisine[0] != null)
+                return recipeSearchByCuisine;
+            else
+                return null;
         }
-        List <Recipe> recipeList = new List<Recipe> ();
 
+
+        public new string[] ToString()
+        {
+            string[] RecipeListString = new string[recipeList.Length];
+            for(int i = 0; i < RecipeListString.Length; i++)
+            {
+                RecipeListString[i] = recipeList[i].title;
+            }
+            return RecipeListString;
+        }
+        //List <Recipe> recipeList = new List<Recipe> ();
+        //Recipe[] recipeSearchByCuisine = new Recipe[Capacity];
+        //Recipe[] LookByKeyword = new Recipe[Capacity];
+        //Recipe[] LookByTitle = new Recipe[Capacity];
     }
 }

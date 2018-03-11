@@ -33,8 +33,16 @@ namespace Assignment5
             this.instructions = instructions;
             this.servingCount = servingCount;
             this.cuisine = cuisine;
-            this.keywords = keywords;
-            this.Ingredients = ingredients;
+            this.keywords = new string [keywords.Length];
+            for(int i = 0; i < keywords.Length; i++)
+            {
+                this.keywords[i] = keywords[i];
+            }
+                Ingredients = new Ingredient[ingredients.Length];
+            for(int i = 0; i < ingredients.Length; i++)
+            {
+                Ingredients[i] = ingredients[i];
+            }
 
         }
 
@@ -66,6 +74,14 @@ namespace Assignment5
         public bool AddIngredient(Ingredient ingredient)
         {
             // بر عهده دانشجو
+            for (int i = 0; i < Ingredients.Length; i++)
+            {
+                if (Ingredients[i] == null)
+                {
+                    Ingredients[i] = ingredient;
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -77,7 +93,19 @@ namespace Assignment5
         public bool RemoveIngredient(string name)
         {
             // بر عهده دانشجو
-            return false;
+            for (int i = 0; i < Ingredients.Length; i++)
+            {
+                if (Ingredients[i].Name == name)
+                {
+                    for(int j = i; j < Ingredients.Length-1; j++)
+                    {
+                        Ingredients[j] = Ingredients[j + 1];
+                    }
+                    Ingredients[Ingredients.Length - 1] = null;
+                    return true;
+                }
+            }
+                return false;
         }
 
         /// <summary>
@@ -87,13 +115,18 @@ namespace Assignment5
         /// <param name="newServingCount">تعداد افراد جدید</param>
         public void UpdateServingCount(int newServingCount)
         {
-            // بر عهده دانشجو
+            // بر عهده دانشجو\
+            for(int i = 0; i < Ingredients.Length; i++)
+            {
+                Ingredients[i].Quantity *= newServingCount / servingCount;
+            }
+            servingCount = newServingCount;
         }
 
         /// <summary>
         /// فیلد پیشتیبان برای Ingredients.
         /// </summary>
-        private Ingredient[] _Ingredients;
+        private Ingredient[] ingredients;
 
         /// <summary>
         /// مواد اولیه
@@ -101,10 +134,11 @@ namespace Assignment5
         public Ingredient[] Ingredients {
             get
             {
-                return _Ingredients;
+                return ingredients;
             }
             private set
             {
+                ingredients = value;
                 // بر عهده دانشجو
             }
         }
@@ -118,7 +152,7 @@ namespace Assignment5
         {
             get
             {
-                return this.title;
+                return title;
             }
             set
             {
