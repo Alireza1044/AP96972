@@ -103,6 +103,16 @@ namespace Assignment5
                                 string titleToSearch = Console.ReadLine();
                                 Recipe recipeTitle = recipeBook.LookupByTitle(titleToSearch);
                                     Console.WriteLine(recipeTitle.title);
+                                Console.WriteLine("Do you want to remove the following recipe? Y or N");
+                                cki = Console.ReadKey();
+                                switch (cki.Key)
+                                {
+                                    case ConsoleKey.Y:
+                                        recipeBook.Remove(recipeTitle.title);
+                                        break;
+                                    default:
+                                        break;
+                                }
                                 break;
                             case "keyword":
                                 string keywordToSearch = Console.ReadLine();
@@ -111,6 +121,19 @@ namespace Assignment5
                                 {
                                     Console.WriteLine(recipeKeyword[i].title);
                                 }
+                                Console.WriteLine("Do you want to remove the following recipies? Y or N");
+                                cki = Console.ReadKey();
+                                switch (cki.Key)
+                                {
+                                    case ConsoleKey.Y:
+                                        for(int i = 0; i < recipeKeyword.Length; i++)
+                                        {
+                                            recipeBook.Remove(recipeKeyword[i].title);
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
                                 break;
                             case "cuisine":
                                 string cuisineToSearch = Console.ReadLine();
@@ -118,6 +141,19 @@ namespace Assignment5
                                 for(int i = 0; i < recipeCuisine.Length; i++)
                                 {
                                     Console.WriteLine(recipeCuisine[i].title);
+                                }
+                                Console.WriteLine("Do you want to remove the following recipies? Y or N");
+                                cki = Console.ReadKey();
+                                switch (cki.Key)
+                                {
+                                    case ConsoleKey.Y:
+                                        for(int i =0;i < recipeCuisine.Length; i++)
+                                        {
+                                            recipeBook.Remove(recipeCuisine[i].title);
+                                        }
+                                        break;
+                                    default:
+                                        break;
                                 }
                                 break;
                             default:
