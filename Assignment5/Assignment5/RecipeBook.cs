@@ -78,15 +78,17 @@ namespace Assignment5
             // بر عهده دانشجو
             for(int i =0;i<capacity; i++)
             {
-                if (recipeList[i].title == recipeTitle)
+                if (recipeList[i].title == recipeTitle )
                 {
-                    for(int j = i; j < recipeList.Length; j++)
+                    for(int j = i; j < recipeList.Length && recipeList[i] != null; j++)
                     {
                         recipeList[j] = recipeList[j + 1];
                     }
                     recipeList[recipeList.Length-1] = null;
                     return true;
                 }
+                else
+                    return false;
             }
             return false;
         }
@@ -119,11 +121,11 @@ namespace Assignment5
             // بر عهده دانشجو
             int idx = 0;
             Recipe[] recipeSearchByKeyword = new Recipe[recipeList.Length];
-            for(int i = 0; i < recipeSearchByKeyword.Length; i++)
+            for(int i = 0; i < recipeSearchByKeyword.Length ; i++)
             {
-                for(int j = 0; j < recipeList.Length; j++)
+                for(int j = 0; j < recipeList.Length && recipeList[i] != null ; j++)
                 {
-                    if(recipeList[i].keywords[j] == keyword)
+                    if(recipeList[i].Keywords[j] == keyword)
                     {
                         recipeSearchByKeyword[idx] = recipeList[i];
                         idx++;
@@ -146,9 +148,9 @@ namespace Assignment5
             // بر عهده دانشجو
             int idx = 0;
             Recipe[] recipeSearchByCuisine = new Recipe[recipeList.Length];
-            for(int i = 0; i < recipeSearchByCuisine.Length; i++)
+            for(int i = 0; i < recipeSearchByCuisine.Length && recipeList[i] != null; i++)
             {
-                if(recipeList[i].cuisine == cuisine)
+                if(recipeList[i].Cuisine == cuisine)
                 {
                     recipeSearchByCuisine[idx] = recipeList[i];
                     idx++;
@@ -164,7 +166,7 @@ namespace Assignment5
         public new string[] ToString()
         {
             string[] RecipeListString = new string[recipeList.Length];
-            for(int i = 0; i < RecipeListString.Length; i++)
+            for(int i = 0; i < RecipeListString.Length && recipeList[i] != null; i++)
             {
                 RecipeListString[i] = recipeList[i].title;
             }

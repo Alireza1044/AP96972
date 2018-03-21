@@ -12,11 +12,11 @@ namespace Assignment5
     public class Recipe
     {
         public string title;
-        public string instructions;
-        public int servingCount;
-        public string cuisine;
-        public string[] keywords;
-        public int ingredientCount;
+        private string instructions;
+        private int servingCount;
+        private string cuisine;
+        private string[] keywords;
+        private int ingredientCount;
         /// <summary>
         /// ایجاد دستور پخت جدید
         /// </summary>
@@ -43,7 +43,6 @@ namespace Assignment5
             {
                 Ingredients[i] = ingredients[i];
             }
-
         }
 
         /// <summary>
@@ -64,6 +63,66 @@ namespace Assignment5
             this.cuisine = cuisine;
             this.keywords = keywords;
             this.ingredientCount = ingredientCount;
+        }
+
+        public string Instructions
+        {
+            get
+            {
+                return instructions;
+            }
+            set
+            {
+                instructions = value;
+            }
+        }
+
+        public int ServingCount
+        {
+            get
+            {
+                return servingCount;
+            }
+            set
+            {
+                servingCount = value;
+            }
+        }
+
+        public string Cuisine
+        {
+            get
+            {
+                return cuisine;
+            }
+            set
+            {
+                cuisine = value;
+            }
+        }
+
+        public int IngredientCount
+        {
+            get
+            {
+                return ingredientCount;
+            }
+            set
+            {
+                ingredientCount = value;
+            }
+        }
+
+        public string[] Keywords
+        {
+            get
+            {
+                return keywords;
+            }
+            set
+            {
+                keywords = value;
+            }
         }
 
         /// <summary>

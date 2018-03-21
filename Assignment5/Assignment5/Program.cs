@@ -27,6 +27,7 @@ namespace Assignment5
                 Console.WriteLine($"Press N(ew), D(el), S(earch)or L(ist)");
                 cki = Console.ReadKey();
                 Console.WriteLine();
+                Recipe recipe;
                 switch (cki.Key)
                 {
                     case ConsoleKey.N:
@@ -48,7 +49,7 @@ namespace Assignment5
                             Console.WriteLine("Enter title:");
                             string title = Console.ReadLine();
                             //creating object of Recipe Class
-                            Recipe recipe = new Recipe(title, instructions,
+                            recipe = new Recipe(title, instructions,
                             new Ingredient[ingredientCount], servingCount, cuisine, keywords);
                             //adding ingredeints
                             for (int i = 0; i < ingredientCount; i++)
@@ -103,12 +104,17 @@ namespace Assignment5
                                 string titleToSearch = Console.ReadLine();
                                 Recipe recipeTitle = recipeBook.LookupByTitle(titleToSearch);
                                     Console.WriteLine(recipeTitle.title);
-                                Console.WriteLine("Do you want to remove the following recipe? Y or N");
+                                Console.WriteLine("Do you want to remove the following recipe or update the serving count? Y or N or U");
                                 cki = Console.ReadKey();
                                 switch (cki.Key)
                                 {
                                     case ConsoleKey.Y:
                                         recipeBook.Remove(recipeTitle.title);
+                                        break;
+                                    case ConsoleKey.U:
+                                        Console.WriteLine("Enter the new Serving count:");
+                                        int newServingCount = int.Parse(Console.ReadLine());
+                                        recipeTitle.UpdateServingCount(newServingCount);
                                         break;
                                     default:
                                         break;
