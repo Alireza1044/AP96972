@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,54 +112,6 @@ namespace Assignment5
         }
 
         /// <summary>
-        /// ذخیره لیست دستور پخت غذاها در فایل.
-        /// </summary>
-        /// <param name="recipeFilePath">آدرس فایل</param>
-        public void Save(string recipeFilePath)
-        {
-            using (StreamWriter writer = new StreamWriter(recipeFilePath, false, Encoding.UTF8))
-            {
-                writer.WriteLine(capacity);
-                foreach (var r in this.recipeList)
-                {
-                    if (r != null)
-                    {
-                        r.Serialize(writer);
-                    }
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// بارگزاری اطلاعات از فایل ذخیره شده
-        /// </summary>
-        /// <param name="recipeFilePath">آدرس فایل</param>
-        /// <returns>آیا بارگزاری با موفقیت انجام شد؟</returns>
-        public bool Load(string recipeFilePath)
-        {
-            if (!File.Exists(recipeFilePath))
-                return false;
-
-            using (StreamReader reader = new StreamReader(recipeFilePath))
-            {
-                int recipeCount = int.Parse(reader.ReadLine());
-                this.recipeList = new Recipe[recipeCount];
-                for (int i = 0; i < recipeCount ; i++)
-                {
-                    Recipe r = Recipe.Deserialize(reader,recipeFilePath);
-                    if (null == r)
-                    {
-                        // Deserialize returns null if it reaches end of file.
-                        break;
-                    }
-                    this.recipeList[i] = r;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
         /// پیدا کردن دستور پخت غذا با کلمه کلیدی
         /// </summary>
         /// <param name="keyword">کلمه کلیدی</param>
@@ -170,9 +121,9 @@ namespace Assignment5
             // بر عهده دانشجو
             int idx = 0;
             Recipe[] recipeSearchByKeyword = new Recipe[recipeList.Length];
-            for(int i = 0; i < recipeSearchByKeyword.Length && recipeList[i] != null ; i++)
+            for(int i = 0; i < recipeSearchByKeyword.Length ; i++)
             {
-                for(int j = 0; j < recipeList[i].Keywords.Length  ; j++)
+                for(int j = 0; j < recipeList.Length && recipeList[i] != null ; j++)
                 {
                     if(recipeList[i].Keywords[j] == keyword)
                     {

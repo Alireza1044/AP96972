@@ -9,7 +9,6 @@ namespace Assignment5
 {
     class Program
     {
-        private const string RecipeFilePath = @"recipe.txt";
         static void Main(string[] args)
         {
             
@@ -25,7 +24,7 @@ namespace Assignment5
             int NumberOfRceipies = 0;
             do
             {   
-                Console.WriteLine($"Press (N)ew, (D)el, (S)earch, (L)ist, sa(V)e or l(O)ad");
+                Console.WriteLine($"Press N(ew), D(el), S(earch)or L(ist)");
                 cki = Console.ReadKey();
                 Console.WriteLine();
                 Recipe recipe;
@@ -124,7 +123,7 @@ namespace Assignment5
                             case "keyword":
                                 string keywordToSearch = Console.ReadLine();
                                 Recipe[] recipeKeyword = recipeBook.LookupByKeyword(keywordToSearch);
-                                for(int i = 0; i < recipeKeyword.Length && recipeKeyword[i] != null; i++)
+                                for(int i = 0; i < recipeKeyword.Length; i++)
                                 {
                                     Console.WriteLine(recipeKeyword[i].title);
                                 }
@@ -144,8 +143,8 @@ namespace Assignment5
                                 break;
                             case "cuisine":
                                 string cuisineToSearch = Console.ReadLine();
-                                Recipe[] recipeCuisine = recipeBook.LookupByCuisine(cuisineToSearch);
-                                for(int i = 0; i < recipeCuisine.Length && recipeCuisine[i]!=null;i++)
+                                Recipe[] recipeCuisine = recipeBook.LookupByKeyword(cuisineToSearch);
+                                for(int i = 0; i < recipeCuisine.Length; i++)
                                 {
                                     Console.WriteLine(recipeCuisine[i].title);
                                 }
@@ -176,12 +175,6 @@ namespace Assignment5
                     case ConsoleKey.Escape:
                         Console.WriteLine("Esc");
                         break;
-                    case ConsoleKey.V:
-                        recipeBook.Save(RecipeFilePath);
-                        break;
-                    case ConsoleKey.O:
-                        recipeBook.Load(RecipeFilePath);
-                        break;
                     default:
                         Console.WriteLine($"Invalid Key: {cki.KeyChar}");
                         break;
@@ -197,3 +190,11 @@ namespace Assignment5
 
     }
 }
+//Console.WriteLine("Do you want to remove an ingredient? Y or N");
+//                        if (ConsoleKey.Y)
+//                        {
+//                            Console.WriteLine("Remove Ingredient");
+//                            string nameToDelete = Console.ReadLine();
+//recipe.RemoveIngredient(nameToDelete);
+//                            break;
+//                        }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,40 +29,6 @@ namespace Assignment5
             this.quantity = quantity;
             this.name = name;
             this.description = description;
-        }
-
-
-        /// <summary>
-        /// ذخیره اطلاعات مواد اولیه این شیء در فایل.
-        /// </summary>
-        /// <param name="writer">شیء مورد استفاده برای نوشتن در فایل</param>
-        public void Serialize(StreamWriter writer, string IngredientFilePath)
-        {
-            // بر عهده دانشجو
-            writer.WriteLine(name);
-            writer.WriteLine(description);
-            writer.WriteLine(quantity);
-            writer.WriteLine(unit);
-        }
-
-        /// <summary>
-        ///  خواندن اطلاعات مواد اولیه از فایل و ایجاد شیء جدید از نوع این کلاس 
-        /// </summary>
-        /// <param name="reader">شیء مورد استفاده برای خواندن از فایل</param>
-        /// <returns>شیء جدید از نوع Ingredient</returns>
-        public static Ingredient Deserialize(StreamReader reader, string IngredientFilePath)
-        {
-            // بر عهده دانشجو
-            if (File.Exists(IngredientFilePath))
-            {
-                string name = reader.ReadLine();
-                string description = reader.ReadLine();
-                double quantity = double.Parse(reader.ReadLine());
-                string unit = reader.ReadLine();
-                return new Ingredient(name, description, quantity, unit);
-            }
-            else
-            return null;
         }
 
         /// <summary>
