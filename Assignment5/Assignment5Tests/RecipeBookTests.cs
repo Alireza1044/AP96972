@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Assignment5.Tests
@@ -16,6 +17,7 @@ namespace Assignment5.Tests
             new Ingredient[1], 1, "iranian", new string[] { "test", "keyword" });
         Recipe recipe1 = new Recipe("title1", "instructions",
            new Ingredient[1], 1, "iranian", new string[] { "test", "keyword" });
+        Ingredient ing = new Ingredient("ingname", "ingdesc", 2.5, "kg");
         [TestMethod()]
         public void AddTest()
         {
@@ -44,7 +46,7 @@ namespace Assignment5.Tests
         public void LookupByKeywordTest()
         {
             recipeBook.Add(recipe);
-            CollectionAssert.Contains(recipeBook.LookupByKeyword("keyword"),recipe);
+            CollectionAssert.Contains(recipeBook.LookupByKeyword("keyword"), recipe);
         }
 
         [TestMethod()]
@@ -52,7 +54,7 @@ namespace Assignment5.Tests
         {
             recipeBook.Add(recipe);
             CollectionAssert.Contains(recipeBook.LookupByCuisine("iranian"), recipe);
-    }
+        }
 
         [TestMethod()]
         public void ToStringTest()
@@ -67,8 +69,27 @@ namespace Assignment5.Tests
         public void RecipeBookTest()
         {
             RecipeBook recipeBook1 = new RecipeBook("the title", 1);
-            Assert.AreEqual(recipeBook1.Title,"the title");
+            Assert.AreEqual(recipeBook1.Title, "the title");
             Assert.AreEqual(recipeBook1.Capacity, 1);
+        }
+
+        [TestMethod()]
+        public void SaveTest()
+        {
+            recipeBook.Add(recipe);
+            recipeBook.Save(@"recipe.txt");
+            Assert.IsTrue(File.Exists(@"recipe.txt"));
+        }
+
+        [TestMethod()]
+        public void LoadTest()
+        {
+            recipeBook.Add(recipe);
+            recipeBook.Add(recipe1);
+            recipe.AddIngredient(ing);
+            recipe1.AddIngredient(ing);
+            recipeBook.Save(@"recipe.txt");
+            Assert.IsTrue(recipeBook.Load(@"recipe.txt"));
         }
     }
 }
