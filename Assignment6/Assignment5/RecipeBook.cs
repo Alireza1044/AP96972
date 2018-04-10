@@ -12,7 +12,6 @@ namespace Assignment5
     /// </summary>
     public class RecipeBook
     {
-        private const string ingFilePath = @"ingredient.txt";
         private string title;
         private int capacity;
         /// <summary>
@@ -117,7 +116,7 @@ namespace Assignment5
         /// ذخیره لیست دستور پخت غذاها در فایل.
         /// </summary>
         /// <param name="recipeFilePath">آدرس فایل</param>
-        public void Save(string recipeFilePath)
+        public void Save(string recipeFilePath,string ingFilePath)
         {
             using (StreamWriter writer = new StreamWriter(recipeFilePath, false, Encoding.UTF8))
             {
@@ -138,7 +137,7 @@ namespace Assignment5
         /// </summary>
         /// <param name="recipeFilePath">آدرس فایل</param>
         /// <returns>آیا بارگزاری با موفقیت انجام شد؟</returns>
-        public bool Load(string recipeFilePath)
+        public bool Load(string recipeFilePath,string ingFilePath)
         {
             if (!File.Exists(recipeFilePath))
                 return false;

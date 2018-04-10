@@ -10,6 +10,7 @@ namespace Assignment5
     class Program
     {
         private const string RecipeFilePath = @"recipe.txt";
+        private const string ingFilePath = @"ingredient.txt";
         static void Main(string[] args)
         {
             
@@ -177,10 +178,10 @@ namespace Assignment5
                         Console.WriteLine("Esc");
                         break;
                     case ConsoleKey.V:
-                        recipeBook.Save(RecipeFilePath);
+                        recipeBook.Save(RecipeFilePath,ingFilePath);
                         break;
                     case ConsoleKey.O:
-                        recipeBook.Load(RecipeFilePath);
+                        recipeBook.Load(RecipeFilePath,ingFilePath);
                         break;
                     default:
                         Console.WriteLine($"Invalid Key: {cki.KeyChar}");

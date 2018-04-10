@@ -77,7 +77,7 @@ namespace Assignment5.Tests
         public void SaveTest()
         {
             recipeBook.Add(recipe);
-            recipeBook.Save(@"recipe.txt");
+            recipeBook.Save(@"recipe.txt",@"ing4.txt");
             Assert.IsTrue(File.Exists(@"recipe.txt"));
         }
 
@@ -88,8 +88,8 @@ namespace Assignment5.Tests
             recipeBook.Add(recipe1);
             recipe.AddIngredient(ing);
             recipe1.AddIngredient(ing);
-            recipeBook.Save(@"recipe.txt");
-            Assert.IsTrue(recipeBook.Load(@"recipe.txt"));
+            recipeBook.Save(@"recipe.txt",@"ing5.txt");
+            Assert.IsTrue(recipeBook.Load(@"recipe.txt",@"ing5.txt"));
         }
     }
 }
