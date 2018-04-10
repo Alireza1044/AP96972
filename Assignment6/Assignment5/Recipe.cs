@@ -84,7 +84,7 @@ namespace Assignment5
                 writer.WriteLine(keywords[i]);
             }
             writer.WriteLine(this.ingredients.Length);
-            using (StreamWriter write = new StreamWriter(IngredientFilePath, true, Encoding.UTF8))
+            using (StreamWriter write = new StreamWriter(IngredientFilePath, false, Encoding.UTF8))
             {
                 write.WriteLine(this.ingredients.Length);
                 foreach (var i in ingredients)
