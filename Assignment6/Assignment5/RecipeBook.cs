@@ -12,6 +12,7 @@ namespace Assignment5
     /// </summary>
     public class RecipeBook
     {
+        private const string ingFilePath = @"ingredient.txt";
         private string title;
         private int capacity;
         /// <summary>
@@ -125,7 +126,7 @@ namespace Assignment5
                 {
                     if (r != null)
                     {
-                        r.Serialize(writer);
+                        r.Serialize(writer,ingFilePath);
                     }
                 }
             }
@@ -148,7 +149,7 @@ namespace Assignment5
                 this.recipeList = new Recipe[recipeCount];
                 for (int i = 0; i < recipeCount ; i++)
                 {
-                    Recipe r = Recipe.Deserialize(reader,recipeFilePath);
+                    Recipe r = Recipe.Deserialize(reader,recipeFilePath,ingFilePath);
                     if (null == r)
                     {
                         // Deserialize returns null if it reaches end of file.

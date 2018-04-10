@@ -12,7 +12,6 @@ namespace Assignment5.Tests
     [TestClass()]
     public class IngredientTests
     {
-        private const string IngredientFilePath = @"ingredient.txt";
         [TestMethod()]
         public void IngredientTest()
         {
@@ -32,11 +31,11 @@ namespace Assignment5.Tests
             double quantity;
             string unit;
             StreamWriter writer;
-            using (writer = new StreamWriter(IngredientFilePath, false, Encoding.UTF8))
+            using (writer = new StreamWriter(@"ing1.txt", false, Encoding.UTF8))
             {
-                ing.Serialize(writer, IngredientFilePath);
+                ing.Serialize(writer, @"ing1.txt");
             }
-            using (StreamReader reader = new StreamReader(IngredientFilePath))
+            using (StreamReader reader = new StreamReader(@"ing1.txt"))
             {
                 name = reader.ReadLine();
                 description = reader.ReadLine();
@@ -58,13 +57,13 @@ namespace Assignment5.Tests
         {
             Ingredient ing1;
             Ingredient ing = new Ingredient("name", "desc", 2.1, "gr");
-            using (StreamWriter writer = new StreamWriter(@"ingredient.txt"))
+            using (StreamWriter writer = new StreamWriter(@"ing2.txt"))
             {
-                ing.Serialize(writer, @"ingredient.txt");
+                ing.Serialize(writer, @"ing2.txt");
             }
-            using (StreamReader reader = new StreamReader(@"ingredient.txt"))
+            using (StreamReader reader = new StreamReader(@"ing2.txt"))
             {
-                ing1 = Ingredient.Deserialize(reader, @"ingredient.txt");
+                ing1 = Ingredient.Deserialize(reader, @"ing2.txt");
             }
             Assert.AreEqual(ing.Name, ing1.Name);
             Assert.AreEqual(ing.Quantity, ing1.Quantity);

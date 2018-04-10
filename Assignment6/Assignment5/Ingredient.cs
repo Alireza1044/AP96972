@@ -37,7 +37,7 @@ namespace Assignment5
         /// ذخیره اطلاعات مواد اولیه این شیء در فایل.
         /// </summary>
         /// <param name="writer">شیء مورد استفاده برای نوشتن در فایل</param>
-        public void Serialize(StreamWriter writer, string IngredientFilePath)
+        public void Serialize(StreamWriter writer, string ingFilePath)
         {
             // بر عهده دانشجو
             writer.WriteLine(name);
@@ -51,10 +51,10 @@ namespace Assignment5
         /// </summary>
         /// <param name="reader">شیء مورد استفاده برای خواندن از فایل</param>
         /// <returns>شیء جدید از نوع Ingredient</returns>
-        public static Ingredient Deserialize(StreamReader reader, string IngredientFilePath)
+        public static Ingredient Deserialize(StreamReader reader, string ingFilePath)
         {
             // بر عهده دانشجو
-            if (File.Exists(IngredientFilePath))
+            if (File.Exists(ingFilePath))
             {
                 string name = reader.ReadLine();
                 string description = reader.ReadLine();

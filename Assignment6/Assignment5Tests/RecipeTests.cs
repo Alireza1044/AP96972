@@ -56,11 +56,11 @@ namespace Assignment5.Tests
         public void SerializeTest()
         {
             Ingredient ing;
-            ing = new Ingredient("name", "desc", 2.1, "kg");
+            ing = new Ingredient("name", "desc", 7.4, "kg");
             Ingredient[] ings = new Ingredient[1];
             ings[0] = ing;
             Recipe recipetest;
-            recipetest = new Recipe("recipetitle", "use with water", ings, 1, "iranian", new string[] { "iran", "food" });
+            recipetest = new Recipe("recipetitle", "use with waters", ings, 1, "iranian", new string[] { "iran", "food" });
             RecipeBook reBook;
             reBook = new RecipeBook("rebook", 1);
             string title;
@@ -72,7 +72,7 @@ namespace Assignment5.Tests
             int ingredietLen;
             using (StreamWriter writer = new StreamWriter(@"recipestest.txt", false, Encoding.UTF8))
             {
-                recipetest.Serialize(writer);
+                recipetest.Serialize(writer,@"ing3.txt");
             }
             using (StreamReader reader = new StreamReader(@"recipestest.txt"))
             {
@@ -99,7 +99,7 @@ namespace Assignment5.Tests
         public void DeserializeTest()
         {
             Ingredient ing;
-            ing = new Ingredient("name", "desc", 2.1, "kg");
+            ing = new Ingredient("name", "desc", 6.0, "kg");
             Ingredient[] ings = new Ingredient[1];
             ings[0] = ing;
             Recipe recipetest;
@@ -111,11 +111,11 @@ namespace Assignment5.Tests
             reBook.Add(recipetest);
             using(StreamWriter writer = new StreamWriter(@"recipse.txt"))
             {
-                recipetest.Serialize(writer);
+                recipetest.Serialize(writer,@"ing3.txt");
             }
             using(StreamReader reader = new StreamReader(@"recipse.txt"))
             {
-                recipetest2 = Recipe.Deserialize(reader, @"recipse.txt");
+                recipetest2 = Recipe.Deserialize(reader, @"recipse.txt",@"ing3.txt");
             }
             //Assert.AreEqual(recipetest.Cuisine, recipetest2.Cuisine);
         }

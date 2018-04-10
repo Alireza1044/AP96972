@@ -12,7 +12,6 @@ namespace Assignment5
     /// </summary>
     public class Recipe
     {
-        private const string IngredientFilePath = @"ingredient.txt";
         public string title;
         private string instructions;
         private int servingCount;
@@ -71,7 +70,7 @@ namespace Assignment5
         /// ذخیره اطلاعات دستور پخت غذای این شیء در فایل.
         /// </summary>
         /// <param name="writer">شیء مورد استفاده برای نوشتن در فایل</param>
-        public void Serialize(StreamWriter writer)
+        public void Serialize(StreamWriter writer,string ingFilePath)
         {
             // بر عهده دانشجو
             writer.WriteLine(title);
@@ -84,14 +83,14 @@ namespace Assignment5
                 writer.WriteLine(keywords[i]);
             }
             writer.WriteLine(this.ingredients.Length);
-            using (StreamWriter write = new StreamWriter(IngredientFilePath, false, Encoding.UTF8))
+            using (StreamWriter write = new StreamWriter(ingFilePath, true, Encoding.UTF8))
             {
                 write.WriteLine(this.ingredients.Length);
                 foreach (var i in ingredients)
                 {
                     if (i != null)
                     {
-                        i.Serialize(write,IngredientFilePath);
+                        i.Serialize(write,ingFilePath);
                     }
                 }
                 //write.Close();
@@ -104,7 +103,7 @@ namespace Assignment5
         /// </summary>
         /// <param name="reader">شیء مورد استفاده برای خواندن از فایل</param>
         /// <returns>شیء جدید از نوع Recipe</returns>
-        public static Recipe Deserialize(StreamReader reader, string recipeFilePath)
+        public static Recipe Deserialize(StreamReader reader, string recipeFilePath,string ingFilePath)
         {
             // بر عهده دانشجو
             if (File.Exists(recipeFilePath))
@@ -122,13 +121,13 @@ namespace Assignment5
                     keywords[i] = reader.ReadLine();
                 }
                 int ingredientCount = int.Parse(reader.ReadLine());
-                using (StreamReader read = new StreamReader(IngredientFilePath))
+                using (StreamReader read = new StreamReader(ingFilePath))
                 {
                     int ingCount = int.Parse(read.ReadLine());
                     Ingredient[] ing = new Ingredient[ingCount];
                     for (int i = 0; i < ing.Length; i++)
                     {
-                        ing[i] = Ingredient.Deserialize(read, IngredientFilePath);
+                        ing[i] = Ingredient.Deserialize(read, ingFilePath);
                     }
                     return new Recipe(title, instructions, ing, servingCount, cuisine, keywords);
                 }

@@ -17,7 +17,7 @@ namespace Assignment5.Tests
             new Ingredient[1], 1, "iranian", new string[] { "test", "keyword" });
         Recipe recipe1 = new Recipe("title1", "instructions",
            new Ingredient[1], 1, "iranian", new string[] { "test", "keyword" });
-        Ingredient ing = new Ingredient("ingname", "ingdesc", 2.5, "kg");
+        Ingredient ing = new Ingredient("ingname", "ingdesc", 5.8, "kg");
         [TestMethod()]
         public void AddTest()
         {
