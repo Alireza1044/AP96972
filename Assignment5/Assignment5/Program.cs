@@ -90,8 +90,13 @@ namespace Assignment5
                     case ConsoleKey.D:
                         Console.WriteLine("Delete Recipe");
                         // بر عهده دانشجو
+                        bool flag = false;
                         string recipeToDelete = Console.ReadLine();
-                        recipeBook.Remove(recipeToDelete);
+                        flag = recipeBook.Remove(recipeToDelete);
+                        if(flag)
+                            Console.WriteLine("Successfully deleted!");
+                        else
+                            Console.WriteLine("Failed to delete!");
                         break;
                     case ConsoleKey.S:
                         Console.WriteLine("Search Recipe");
@@ -103,7 +108,7 @@ namespace Assignment5
                             case "title":
                                 string titleToSearch = Console.ReadLine();
                                 Recipe recipeTitle = recipeBook.LookupByTitle(titleToSearch);
-                                    Console.WriteLine(recipeTitle.title);
+                                Console.WriteLine(recipeTitle.ToString());
                                 Console.WriteLine("Do you want to remove the following recipe or update the serving count? Y or N or U");
                                 cki = Console.ReadKey();
                                 switch (cki.Key)
@@ -125,7 +130,7 @@ namespace Assignment5
                                 Recipe[] recipeKeyword = recipeBook.LookupByKeyword(keywordToSearch);
                                 for(int i = 0; i < recipeKeyword.Length; i++)
                                 {
-                                    Console.WriteLine(recipeKeyword[i].title);
+                                    Console.WriteLine(recipeKeyword[i].ToString());
                                 }
                                 Console.WriteLine("Do you want to remove the following recipies? Y or N");
                                 cki = Console.ReadKey();
@@ -134,7 +139,7 @@ namespace Assignment5
                                     case ConsoleKey.Y:
                                         for(int i = 0; i < recipeKeyword.Length; i++)
                                         {
-                                            recipeBook.Remove(recipeKeyword[i].title);
+                                            recipeBook.Remove(recipeKeyword[i].ToString());
                                         }
                                         break;
                                     default:
@@ -146,7 +151,7 @@ namespace Assignment5
                                 Recipe[] recipeCuisine = recipeBook.LookupByKeyword(cuisineToSearch);
                                 for(int i = 0; i < recipeCuisine.Length; i++)
                                 {
-                                    Console.WriteLine(recipeCuisine[i].title);
+                                    Console.WriteLine(recipeCuisine[i].ToString());
                                 }
                                 Console.WriteLine("Do you want to remove the following recipies? Y or N");
                                 cki = Console.ReadKey();

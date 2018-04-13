@@ -50,5 +50,19 @@ namespace Assignment5.Tests
             Assert.AreEqual(recipe1.Cuisine, "iranian");
             CollectionAssert.AreEqual(recipe1.Keywords, new string[] { "test", "unit test" });
         }
+
+        [TestMethod()]
+        public void RecipeTest1()
+        {
+            Ingredient[] ings = new Ingredient[2];
+            ings[0] = new Ingredient("ing1", "ing desc", 2.4, "kg");
+            ings[1] = new Ingredient("ing2", "ing2 description", 4.1, "gr");
+            Recipe recipe = new Recipe("recipe title", "recipe instructs", ings, 3, "italian", new string[] { "iran", "food", "italy" });
+            Assert.AreEqual(recipe.Instructions, "recipe instructs");
+            CollectionAssert.AreEqual(recipe.Ingredients, ings);
+            Assert.AreEqual(recipe.ServingCount, 3);
+            Assert.AreEqual(recipe.Cuisine, "italian");
+            CollectionAssert.AreEqual(recipe.Keywords, new string[] { "iran", "food","italy" });
+        }
     }
 }

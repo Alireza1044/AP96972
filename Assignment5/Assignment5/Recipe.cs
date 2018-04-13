@@ -33,16 +33,10 @@ namespace Assignment5
             this.instructions = instructions;
             this.servingCount = servingCount;
             this.cuisine = cuisine;
-            this.keywords = new string [keywords.Length];
-            for(int i = 0; i < keywords.Length; i++)
-            {
-                this.keywords[i] = keywords[i];
-            }
-                Ingredients = new Ingredient[ingredients.Length];
-            for(int i = 0; i < ingredients.Length; i++)
-            {
-                Ingredients[i] = ingredients[i];
-            }
+            this.keywords = new string[keywords.Length];
+            this.keywords = keywords;
+            Ingredients = new Ingredient[ingredients.Length];
+            Ingredients = ingredients;
         }
 
         /// <summary>
@@ -63,6 +57,7 @@ namespace Assignment5
             this.cuisine = cuisine;
             this.keywords = keywords;
             this.ingredientCount = ingredientCount;
+            Ingredients = new Ingredient[ingredientCount];
         }
 
         public string Instructions
@@ -205,8 +200,20 @@ namespace Assignment5
         public override string ToString()
         {
             // بر عهده دانشجو
-            return null;
+            string info = "Title: " + title + "\nInstructions: " + instructions
+                + "\nCuisine: " + cuisine + "\nKeywords:\n";
+            for(int i =0;i<Ingredients.Length && Ingredients[i] != null; i++)
+            {
+                info += Ingredients[i] + "\n";
+            }
+            info += "Keywords:\n";
+            for(int i =0;i<keywords.Length && keywords[i] != null; i++)
+            {
+                info += keywords[i] + "\n";
+            }
+            return info;
         }
+
         public string Title
         {
             get

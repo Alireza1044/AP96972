@@ -121,9 +121,9 @@ namespace Assignment5
             // بر عهده دانشجو
             int idx = 0;
             Recipe[] recipeSearchByKeyword = new Recipe[recipeList.Length];
-            for(int i = 0; i < recipeSearchByKeyword.Length ; i++)
+            for(int i = 0; i < recipeSearchByKeyword.Length && recipeList[i] != null ; i++)
             {
-                for(int j = 0; j < recipeList.Length && recipeList[i] != null ; j++)
+                for(int j = 0; j < recipeList[i].Keywords.Length && recipeList[i].Keywords[j] != null ; j++)
                 {
                     if(recipeList[i].Keywords[j] == keyword)
                     {
