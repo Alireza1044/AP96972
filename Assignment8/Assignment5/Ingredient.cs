@@ -14,8 +14,6 @@ namespace Assignment5
     {
         private double quantity;
         private string unit;
-        private string name;
-        private string description;
         /// <summary>
         /// ایجاد شئ مشخصات یکی از مواد اولیه دستور غذا
         /// </summary>

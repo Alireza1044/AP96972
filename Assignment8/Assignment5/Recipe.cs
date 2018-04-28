@@ -13,11 +13,7 @@ namespace Assignment5
     public class Recipe
     {
         public string title;
-        private string instructions;
-        private int servingCount;
-        private string cuisine;
         private string[] keywords;
-        private int ingredientCount;
         /// <summary>
         /// ایجاد دستور پخت جدید
         /// </summary>
