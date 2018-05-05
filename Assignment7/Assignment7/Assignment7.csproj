@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -107,6 +108,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Assignment6\Assignment5Tests\Assignment5Tests.csproj">
+      <Project>{3bf45e55-facb-43eb-b775-4d90ca757e9b}</Project>
+      <Name>Assignment5Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Assignment6\Assignment5\Assignment5.csproj">
       <Project>{2b354214-cdef-4712-9ead-6652f166f983}</Project>
       <Name>Assignment5</Name>

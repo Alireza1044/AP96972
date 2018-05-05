@@ -14,8 +14,9 @@ namespace Assignment5.Tests
     {
         RecipeBook recipeBook = new RecipeBook("BookTitle", 1);
         Ingredient ingredient = new Ingredient("ingredientname", "ingredientdesciption", 2, "kg");
+        List<Ingredient> ings2 = new List<Ingredient>();
         Recipe recipe = new Recipe("title", "instructions",
-                    new Ingredient[1], 1, "iranian", new string[] { "test", "keyword" });
+                    new List<Ingredient>(), 1, "iranian", new string[] { "test", "keyword" });
         //Recipe recipe1 = new Recipe("title", "instructions",
         //            new Ingredient[] {"ingredientname", "ingredientdesciption", 2, "kg"} , 1, "iranian", new string[] { "test", "keyword" });
         [TestMethod()]
@@ -29,6 +30,7 @@ namespace Assignment5.Tests
         {
             recipe.AddIngredient(ingredient);
             Assert.IsFalse(recipe.RemoveIngredient("test"));
+            Assert.IsTrue(recipe.RemoveIngredient("ingredientname"));
         }
 
         [TestMethod()]
@@ -57,8 +59,8 @@ namespace Assignment5.Tests
         {
             Ingredient ing;
             ing = new Ingredient("name", "desc", 7.4, "kg");
-            Ingredient[] ings = new Ingredient[1];
-            ings[0] = ing;
+            List<Ingredient> ings = new List<Ingredient>();
+            ings.Add(ing);
             Recipe recipetest;
             recipetest = new Recipe("recipetitle", "use with waters", ings, 1, "iranian", new string[] { "iran", "food" });
             RecipeBook reBook;
@@ -72,7 +74,7 @@ namespace Assignment5.Tests
             int ingredietLen;
             using (StreamWriter writer = new StreamWriter(@"recipestest.txt", false, Encoding.UTF8))
             {
-                recipetest.Serialize(writer,@"ing3.txt");
+                recipetest.Serialize(writer, @"ing3.txt");
             }
             using (StreamReader reader = new StreamReader(@"recipestest.txt"))
             {
@@ -89,7 +91,7 @@ namespace Assignment5.Tests
                 }
                 ingredietLen = int.Parse(reader.ReadLine());
             }
-            Assert.AreEqual(recipetest.title, title);
+            Assert.AreEqual(recipetest.Title, title);
             Assert.AreEqual(recipetest.Cuisine, cuisine);
             Assert.AreEqual(recipetest.Instructions, instructions);
             CollectionAssert.AreEqual(recipetest.Keywords, keywords);
@@ -100,8 +102,8 @@ namespace Assignment5.Tests
         {
             Ingredient ing;
             ing = new Ingredient("name", "desc", 6.0, "kg");
-            Ingredient[] ings = new Ingredient[1];
-            ings[0] = ing;
+            List<Ingredient> ings = new List<Ingredient>();
+            ings.Add(ing);
             Recipe recipetest;
             Recipe recipetest2;
             recipetest = new Recipe("recipetitle", "use with water", ings, 1, "iranian", new string[] { "iran", "food" });
@@ -109,15 +111,35 @@ namespace Assignment5.Tests
             RecipeBook reBook;
             reBook = new RecipeBook("rebook", 1);
             reBook.Add(recipetest);
-            using(StreamWriter writer = new StreamWriter(@"recipse.txt"))
+            using (StreamWriter writer = new StreamWriter(@"recipse.txt"))
             {
-                recipetest.Serialize(writer,@"ing3.txt");
+                recipetest.Serialize(writer, @"ing3.txt");
             }
-            using(StreamReader reader = new StreamReader(@"recipse.txt"))
+            using (StreamReader reader = new StreamReader(@"recipse.txt"))
             {
-                recipetest2 = Recipe.Deserialize(reader, @"recipse.txt",@"ing3.txt");
+                recipetest2 = Recipe.Deserialize(reader, @"recipse.txt", @"ing3.txt");
             }
             //Assert.AreEqual(recipetest.Cuisine, recipetest2.Cuisine);
+        }
+
+        [TestMethod()]
+        public void ToStringTest()
+        {
+            ings2.Add(ingredient);
+            Recipe recipesstring = new Recipe("title", "instructions", ings2, 2, "cuisine", new string[] { "keyword", "key" });
+            string info = "Title: " + recipesstring.Title + "\nInstructions: " + recipesstring.Instructions
+                + "\nCuisine: " + recipesstring.Cuisine + "\nKeywords:\n";
+            
+            for (int i = 0; i < ings2.Count && ings2[i] != null; i++)
+            {
+                info += ings2[i].Name + "\n";
+            }
+            info += "Keywords:\n";
+            for (int i = 0; i < recipesstring.Keywords.Length && recipesstring.Keywords[i] != null; i++)
+            {
+                info += recipesstring.Keywords[i] + "\n";
+            }
+            Assert.AreEqual(info,recipesstring.ToString());
         }
     }
 }

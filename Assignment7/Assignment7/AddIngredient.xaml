@@ -70,6 +70,6 @@
             Name="BtnCnclIng"
             Width="50" Height="27" Margin="180,7,100,-30" Grid.Row="5"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center">Cancel</Button>
+            VerticalAlignment="Center" Click="BtnCnclIng_Click">Cancel</Button>
     </Grid>
 </Window>

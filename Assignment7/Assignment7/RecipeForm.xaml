@@ -90,7 +90,7 @@
             <Button Margin="2" Padding="1" HorizontalAlignment="Left" DockPanel.Dock="Left" Name="BtnView" Click="BtnView_Click">نمایش</Button>
         </DockPanel>
         <DockPanel Grid.Row="6" Grid.Column="1">
-            <Button DockPanel.Dock="Right" Margin="2,37,2,-32.5" Padding="2" HorizontalAlignment="Right" >انصراف</Button>
+            <Button DockPanel.Dock="Right" Margin="2,37,2,-32.5" Padding="2" HorizontalAlignment="Right" Click="Button_Click" >انصراف</Button>
             <Button x:Name="RecipeConfirm" DockPanel.Dock="Right" Margin="2,37,2,-32.5" Padding="2" HorizontalAlignment="Right" Click="RecipeConfirm_Click" Height="35" VerticalAlignment="Top" Width="43" >ثبت</Button>
         </DockPanel>
     </Grid>

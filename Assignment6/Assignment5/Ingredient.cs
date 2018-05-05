@@ -14,8 +14,6 @@ namespace Assignment5
     {
         private double quantity;
         private string unit;
-        private string name;
-        private string description;
         /// <summary>
         /// ایجاد شئ مشخصات یکی از مواد اولیه دستور غذا
         /// </summary>
@@ -26,10 +24,10 @@ namespace Assignment5
         public Ingredient(string name, string description, double quantity, string unit)
         {
             // بر عهده دانشجو
-            this.unit = unit;
-            this.quantity = quantity;
-            this.name = name;
-            this.description = description;
+            Unit = unit;
+            Quantity = quantity;
+            Name = name;
+            Description = description;
         }
 
 
@@ -40,10 +38,10 @@ namespace Assignment5
         public void Serialize(StreamWriter writer, string ingFilePath)
         {
             // بر عهده دانشجو
-            writer.WriteLine(name);
-            writer.WriteLine(description);
-            writer.WriteLine(quantity);
-            writer.WriteLine(unit);
+            writer.WriteLine(Name);
+            writer.WriteLine(Description);
+            writer.WriteLine(Quantity);
+            writer.WriteLine(Unit);
         }
 
         /// <summary>
@@ -70,29 +68,18 @@ namespace Assignment5
         /// <summary>
         /// نام ماده اولیه
         /// </summary>
-        public string Name {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            } 
-                }
+        public string Name
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// توضیح: از کجا پیدا کنیم یا اگر نداشتیم جایگزین چه چیزی استفاده کنیم
         /// </summary>
         public string Description {
-            get
-            {
-                return description;
-            }
-            set
-            {
-                description = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>

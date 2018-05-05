@@ -23,17 +23,19 @@ namespace Assignment7
     {
         MainWindow mw = new MainWindow();
         Recipe recipe;
-        Ingredient[] ingredients = new Ingredient[5];
-        int i = 0;
+        List<Ingredient> ingredients = new List<Ingredient>();
         public RecipeForm()
         {
             InitializeComponent();
         }
 
-        public  void ListBoxReset()
+        /// <summary>
+        /// shows the ingredients in the listbox
+        /// </summary>
+        public void ListBoxReset()
         {
             IngredientsListBox.Items.Clear();
-            for (int i = 0; i < ingredients.Length && ingredients[i] != null; i++)
+            for (int i = 0; i < ingredients.Count && ingredients[i] != null; i++)
             {
                 ListBoxItem item = new ListBoxItem();
                 //item.Content = $"دستور غذای شماره {i+1}";
@@ -45,19 +47,28 @@ namespace Assignment7
             }
         }
 
+        /// <summary>
+        /// creates a new ingredient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNew_Click(object sender, RoutedEventArgs e)
         {
             Window1 frm = new Window1();
             frm.ShowDialog();
             //if(ingredients[i] == null)
-            ingredients[i] = frm.ingredient;
-            i++;
+            ingredients.Add(frm.ingredient);
             if (!mw.WindowsIsOpen("Add_Ingredient"))
             {
                 ListBoxReset();
             }
         }
 
+        /// <summary>
+        /// creates the recipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RecipeConfirm_Click(object sender, RoutedEventArgs e)
         {
             string[] keywords = RecipeKeywords.Text.Split();
@@ -65,6 +76,9 @@ namespace Assignment7
             mw.CloseWindow("Add_Recipe");
         }
 
+        /// <summary>
+        /// public field for recipe
+        /// </summary>
         public Recipe recipes
         {
             get
@@ -73,35 +87,56 @@ namespace Assignment7
             }
         }
 
+        /// <summary>
+        /// removes the selected ingredient from recipe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
             string ListBoxValue = ((ListBoxItem)IngredientsListBox.SelectedItem).Content.ToString();
-            for (int i = 0; i < ingredients.Length && ingredients[i] !=null; i++)
+            for (int i = 0; i < ingredients.Count && ingredients[i] !=null; i++)
             {
                 if (ListBoxValue == ingredients[i].Name)
                 {
-                    for (int j = i; j < ingredients.Length && ingredients[i] != null; j++)
-                {
-                        ingredients[i] = ingredients[j + 1];
-                        break;
+                    for (int j = i; j < ingredients.Count && ingredients[j] != null; j++)
+                    {
+                        ingredients[j] = ingredients[j + 1];
                     }
                 }
             }
             ListBoxReset();
         }
 
+        /// <summary>
+        /// shows some info of the selected ingredient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnView_Click(object sender, RoutedEventArgs e)
         {
             string ListBoxValue = ((ListBoxItem)IngredientsListBox.SelectedItem).Content.ToString();
-            for(int i =0;i<ingredients.Length && ingredients[i] != null; i++)
+            if (ListBoxValue == null)
             {
-                if(ListBoxValue == ingredients[i].Name)
+                MessageBox.Show("Please select an ingredient!");
+            }
+            else
+            {
+                for (int i = 0; i < ingredients.Count && ingredients[i] != null; i++)
                 {
-                    MessageBox.Show("Name: " + ingredients[i].Name + "\nDescription: "
-                        + ingredients[i].Description + "\nQuantity: " + ingredients[i].Quantity
-                        + "\nUnit: " + ingredients[i].Unit);
+                    if (ListBoxValue == ingredients[i].Name)
+                    {
+                        MessageBox.Show("Name: " + ingredients[i].Name + "\nDescription: "
+                            + ingredients[i].Description + "\nQuantity: " + ingredients[i].Quantity
+                            + "\nUnit: " + ingredients[i].Unit);
+                    }
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            mw.CloseWindow("Add_Recipe");
         }
     }
 }

@@ -14,16 +14,22 @@ namespace Assignment5.Tests
     {
         RecipeBook recipeBook = new RecipeBook("recipeBookName", 2);
         Recipe recipe = new Recipe("title", "instructions",
-            new Ingredient[1], 1, "iranian", new string[] { "test", "keyword" });
+            new List<Ingredient>(), 1, "iranian", new string[] { "test", "keyword" });
         Recipe recipe1 = new Recipe("title1", "instructions",
-           new Ingredient[1], 1, "iranian", new string[] { "test", "keyword" });
+           new List<Ingredient>(), 1, "iranian", new string[] { "test", "keyword" });
         Ingredient ing = new Ingredient("ingname", "ingdesc", 5.8, "kg");
         [TestMethod()]
         public void AddTest()
         {
             Assert.IsTrue(recipeBook.Add(recipe));
             recipeBook.Add(recipe);
-            Assert.IsFalse(recipeBook.Add(recipe));
+            Assert.IsTrue(recipeBook.Add(recipe));
+        }
+
+        [TestMethod()]
+        public void LoadTest1()
+        {
+            Assert.IsFalse(recipeBook.Load(@"sss.txt",@"qqq.txt"));
         }
 
         [TestMethod()]
@@ -40,6 +46,7 @@ namespace Assignment5.Tests
         {
             recipeBook.Add(recipe);
             Assert.AreEqual(recipeBook.LookupByTitle("title"), recipe);
+            Assert.AreNotEqual(recipeBook.LookupByTitle("zzz"), recipe);
         }
 
         [TestMethod()]
@@ -57,15 +64,6 @@ namespace Assignment5.Tests
         }
 
         [TestMethod()]
-        public void ToStringTest()
-        {
-            recipeBook.Add(recipe);
-            recipeBook.Add(recipe1);
-            CollectionAssert.AreEqual(recipeBook.ToString(), new string[] { "title", "title1" });
-            CollectionAssert.AreNotEqual(recipeBook.ToString(), new string[] { "title1", "title" });
-        }
-
-        [TestMethod()]
         public void RecipeBookTest()
         {
             RecipeBook recipeBook1 = new RecipeBook("the title", 1);
@@ -77,9 +75,11 @@ namespace Assignment5.Tests
         public void SaveTest()
         {
             recipeBook.Add(recipe);
-            recipeBook.Save(@"recipe.txt",@"ing4.txt");
+            recipeBook.Save(@"recipe.txt", @"ing4.txt");
             Assert.IsTrue(File.Exists(@"recipe.txt"));
         }
+
+
 
         [TestMethod()]
         public void LoadTest()
@@ -88,8 +88,10 @@ namespace Assignment5.Tests
             recipeBook.Add(recipe1);
             recipe.AddIngredient(ing);
             recipe1.AddIngredient(ing);
-            recipeBook.Save(@"recipe.txt",@"ing5.txt");
-            Assert.IsTrue(recipeBook.Load(@"recipe.txt",@"ing5.txt"));
+            recipeBook.Save(@"recipe.txt", @"ing5.txt");
+            Assert.IsTrue(recipeBook.Load(@"recipe.txt", @"ing5.txt"));
         }
+
+
     }
 }

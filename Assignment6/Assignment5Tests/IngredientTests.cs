@@ -56,6 +56,7 @@ namespace Assignment5.Tests
         public void DeserializeTest()
         {
             Ingredient ing1;
+            Ingredient ing2;
             Ingredient ing = new Ingredient("name", "desc", 2.1, "gr");
             using (StreamWriter writer = new StreamWriter(@"ing2.txt"))
             {
@@ -65,10 +66,23 @@ namespace Assignment5.Tests
             {
                 ing1 = Ingredient.Deserialize(reader, @"ing2.txt");
             }
+            using (StreamReader reader = new StreamReader(@"ing2.txt"))
+            {
+                ing2 = Ingredient.Deserialize(reader, @"w2fmk.txt");
+            }
+            Assert.IsNull(ing2);
             Assert.AreEqual(ing.Name, ing1.Name);
             Assert.AreEqual(ing.Quantity, ing1.Quantity);
             Assert.AreEqual(ing.Description, ing1.Description);
             Assert.AreEqual(ing.Unit, ing1.Unit);
+        }
+
+        [TestMethod()]
+        public void ToStringTest()
+        {
+            Ingredient ing = new Ingredient("name", "desc", 2.5, "kg");
+            string inginfo = ing.ToString();
+            Assert.AreEqual(inginfo, $"{ing.Name}:\t{ing.Quantity} {ing.Unit} - {ing.Description}");
         }
     }
 }
