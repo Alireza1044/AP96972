@@ -23,7 +23,7 @@ namespace Assignment5
             Title = title;
             Capacity = capacity;
         }
-        List<Recipe> recipeList  = new List<Recipe>();
+        public List<Recipe> recipeList  = new List<Recipe>();
 
         /// <summary>
         /// the title of the recipe book
@@ -99,7 +99,7 @@ namespace Assignment5
         {
             using (StreamWriter writer = new StreamWriter(recipeFilePath, false, Encoding.UTF8))
             {
-                writer.WriteLine(Capacity);
+                writer.WriteLine(recipeList.Count);
                 foreach (var r in this.recipeList)
                 {
                     if (r != null)
@@ -147,7 +147,7 @@ namespace Assignment5
         public Recipe[] LookupByKeyword(string keyword)
         {
             // بر عهده دانشجو
-            
+            int idx = 0;
             List<Recipe> foundRecipe = new List<Recipe>();
             for(int i = 0; i < recipeList.Count && recipeList[i] != null ; i++)
             {
@@ -156,10 +156,14 @@ namespace Assignment5
                     if(recipeList[i].Keywords[j] == keyword)
                     {
                         foundRecipe.Add(recipeList[i]);
+                        idx++;
                     }
                 }
             }
-            return foundRecipe.ToArray();
+            if (idx > 0)
+                return foundRecipe.ToArray();
+            else
+                return null;
         }
 
         /// <summary>

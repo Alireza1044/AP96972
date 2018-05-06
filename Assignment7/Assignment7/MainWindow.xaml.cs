@@ -25,8 +25,8 @@ namespace Assignment7
         int i = 0;
         RecipeBook recipeBook = new RecipeBook("reBook", 20);
         List<Recipe> recipes;
-        private const string recipeFilePath = @"recipes.txt";
-        private const string ingredientFilePath = @"ingredients.txt";
+        //private const string recipeFilePath = @"recipes.txt";
+        //private const string ingredientFilePath = @"ingredients.txt";
         public MainWindow()
         {
             InitializeComponent();
@@ -101,7 +101,22 @@ namespace Assignment7
         /// <param name="e"></param>
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
-            recipeBook.Load(recipeFilePath, ingredientFilePath);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            string recipeFilePath = null;
+            string ingredientFilePath = null;
+            if (openFileDialog.ShowDialog().Value)
+            {
+                recipeFilePath = openFileDialog.FileName;
+                if (openFileDialog1.ShowDialog().Value)
+                {
+                    ingredientFilePath = openFileDialog1.FileName;
+                }
+                recipeBook.Load(recipeFilePath, ingredientFilePath);
+            }
+            foreach (var r in recipeBook.recipeList)
+            recipes.Add(r);
+            ListBoxReset();
         }
 
         /// <summary>
@@ -111,19 +126,26 @@ namespace Assignment7
         /// <param name="e"></param>
         private void BtnView_Click(object sender, RoutedEventArgs e)
         {
-            string ListBoxValue = ((ListBoxItem)RecipeListBox.SelectedItem).Content.ToString();
-            string keywords = null;
-            for (int i = 0; i < recipes.Count && recipes[i] != null; i++)
+            try
             {
-                if (ListBoxValue == recipes[i].Title)
+                string ListBoxValue = ((ListBoxItem)RecipeListBox.SelectedItem).Content.ToString();
+                string keywords = null;
+                for (int i = 0; i < recipes.Count && recipes[i] != null; i++)
                 {
-                    for (int j = 0; j < recipes[i].Keywords.Length && recipes[i].Keywords[j] != null && recipes[i] != null; j++)
+                    if (ListBoxValue == recipes[i].Title)
                     {
-                        keywords = keywords + "\n " + recipes[i].Keywords[j];
+                        for (int j = 0; j < recipes[i].Keywords.Length && recipes[i].Keywords[j] != null && recipes[i] != null; j++)
+                        {
+                            keywords = keywords + "\n " + recipes[i].Keywords[j];
+                        }
+                        MessageBox.Show("Name: " + recipes[i].Title + "\nServing Count: " + recipes[i].ServingCount + "\nKeywords: " + keywords + "\nInstructions: " + recipes[i].Instructions);
+                        break;
                     }
-                    MessageBox.Show("Name: " + recipes[i].Title + "\nServing Count: " + recipes[i].ServingCount + "\nKeywords: " + keywords + "\nInstructions: " + recipes[i].Instructions);
-                    break;
                 }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Please select an item!");
             }
         }
 
@@ -140,38 +162,48 @@ namespace Assignment7
         /// <param name="e"></param>
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            RecipeListBox.Items.Clear();
-            switch (SearchKind.Text)
+            try
             {
-                case "Title":
-                    ListBoxItem item = new ListBoxItem();
-                    item.Content = recipeBook.LookupByTitle(SearchTextBox.Text).Title;
-                    RecipeListBox.Items.Add(item);
-                    break;
+                switch (SearchKind.Text)
+                {
+                    case "Title":
+                        RecipeListBox.Items.Clear();
+                        ListBoxItem item = new ListBoxItem();
+                        item.Content = recipeBook.LookupByTitle(SearchTextBox.Text).Title;
+                        RecipeListBox.Items.Add(item);
+                        break;
 
-                case "Keyword":
-                    Recipe[] recipeSearchByKeyword;
-                    recipeSearchByKeyword = recipeBook.LookupByKeyword(SearchTextBox.Text);
-                    for (int i = 0; i < recipeSearchByKeyword.Length && recipeSearchByKeyword[i] != null; i++)
-                    {
-                        ListBoxItem items = new ListBoxItem();
-                        items.Content = recipeSearchByKeyword[i].Title;
-                        RecipeListBox.Items.Add(items);
-                    }
-                    break;
+                    case "Keyword":
+                        RecipeListBox.Items.Clear();
+                        Recipe[] recipeSearchByKeyword;
+                        recipeSearchByKeyword = recipeBook.LookupByKeyword(SearchTextBox.Text);
+                        for (int i = 0; i < recipeSearchByKeyword.Length && recipeSearchByKeyword[i] != null; i++)
+                        {
+                            ListBoxItem items = new ListBoxItem();
+                            items.Content = recipeSearchByKeyword[i].Title;
+                            RecipeListBox.Items.Add(items);
+                        }
+                        break;
 
-                case "Cuisine":
-                    Recipe[] recipeSearchByCuisine;
-                    recipeSearchByCuisine = recipeBook.LookupByCuisine(SearchTextBox.Text);
-                    for (int i = 0; i < recipeSearchByCuisine.Length && recipeSearchByCuisine[i] != null; i++)
-                    {
-                        ListBoxItem items = new ListBoxItem();
-                        items.Content = recipeSearchByCuisine[i].Title;
-                        RecipeListBox.Items.Add(items);
-                    }
-                    break;
-                default:
-                    break;
+                    case "Cuisine":
+                        RecipeListBox.Items.Clear();
+                        Recipe[] recipeSearchByCuisine;
+                        recipeSearchByCuisine = recipeBook.LookupByCuisine(SearchTextBox.Text);
+                        for (int i = 0; i < recipeSearchByCuisine.Length && recipeSearchByCuisine[i] != null; i++)
+                        {
+                            ListBoxItem items = new ListBoxItem();
+                            items.Content = recipeSearchByCuisine[i].Title;
+                            RecipeListBox.Items.Add(items);
+                        }
+                        break;
+                    default:
+                        MessageBox.Show("How do you want to search?");
+                        break;
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Please try again!");
             }
         }
 
@@ -189,14 +221,15 @@ namespace Assignment7
                 if (ListBoxValue == recipes[i].Title)
                 {
                     flag = recipeBook.Remove(recipes[i].Title);
-                    recipes[i] = null;
-                    ListBoxReset();
+                    recipes.RemoveAt(i);
                     if (flag)
                         MessageBox.Show("Deleted successfully!");
                     else
                         MessageBox.Show("Failed to delete!");
+                    break;
                 }
             }
+            ListBoxReset();
         }
 
         /// <summary>
@@ -206,7 +239,19 @@ namespace Assignment7
         /// <param name="e"></param>
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            recipeBook.Save(recipeFilePath, ingredientFilePath);
+            SaveFileDialog SaveDialog = new SaveFileDialog();
+            SaveFileDialog SaveDialog1 = new SaveFileDialog();
+            string recipeFilePath = null;
+            string ingredientFilePath = null;
+            if (SaveDialog.ShowDialog().Value)
+            {
+                recipeFilePath = SaveDialog.FileName;
+                if (SaveDialog1.ShowDialog().Value)
+                {
+                    ingredientFilePath = SaveDialog1.FileName;
+                }
+                recipeBook.Save(recipeFilePath, ingredientFilePath);
+            }
         }
     }
 }

@@ -71,9 +71,21 @@ namespace Assignment7
         /// <param name="e"></param>
         private void RecipeConfirm_Click(object sender, RoutedEventArgs e)
         {
-            string[] keywords = RecipeKeywords.Text.Split();
-            recipe = new Recipe(RecipeName.Text,RecipeInstructions.Text, ingredients, int.Parse(RecipeServingCount.Text), RecipeCuisine.Text, keywords);
-            mw.CloseWindow("Add_Recipe");
+            try
+            {
+                string[] keywords = RecipeKeywords.Text.Split();
+                recipe = new Recipe(RecipeName.Text, RecipeInstructions.Text, ingredients,
+                    int.Parse(RecipeServingCount.Text), RecipeCuisine.Text, keywords);
+                mw.CloseWindow("Add_Recipe");
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Please fill all the fields!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please fill all the fields!");
+            }
         }
 
         /// <summary>

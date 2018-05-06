@@ -75,8 +75,19 @@ namespace Assignment7
         /// <param name="e"></param>
         private void BtnAddIng_Click(object sender, RoutedEventArgs e)
         {
-            ing = new Ingredient(IngName.Text, IngDescription.Text, double.Parse(IngQuantity.Text), IngUnit.Text);
-            mw.CloseWindow("Add_Ingredient");
+            try
+            {
+                ing = new Ingredient(IngName.Text, IngDescription.Text, double.Parse(IngQuantity.Text), IngUnit.Text);
+                mw.CloseWindow("Add_Ingredient");
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Please fill all the fields!");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please fill all the fields!");
+            }
         }
 
         /// <summary>
