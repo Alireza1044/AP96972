@@ -33,7 +33,7 @@ namespace Assignment5.Tests
             StreamWriter writer;
             using (writer = new StreamWriter(@"ing1.txt", false, Encoding.UTF8))
             {
-                ing.Serialize(writer, @"ing1.txt");
+                ing.Serialize(writer);
             }
             using (StreamReader reader = new StreamReader(@"ing1.txt"))
             {
@@ -60,7 +60,7 @@ namespace Assignment5.Tests
             Ingredient ing = new Ingredient("name", "desc", 2.1, "gr");
             using (StreamWriter writer = new StreamWriter(@"ing2.txt"))
             {
-                ing.Serialize(writer, @"ing2.txt");
+                ing.Serialize(writer);
             }
             using (StreamReader reader = new StreamReader(@"ing2.txt"))
             {

@@ -35,7 +35,7 @@ namespace Assignment5
         /// ذخیره اطلاعات مواد اولیه این شیء در فایل.
         /// </summary>
         /// <param name="writer">شیء مورد استفاده برای نوشتن در فایل</param>
-        public void Serialize(StreamWriter writer, string ingFilePath)
+        public void Serialize(StreamWriter writer)
         {
             // بر عهده دانشجو
             writer.WriteLine(Name);
@@ -54,7 +54,6 @@ namespace Assignment5
             // بر عهده دانشجو
             if (File.Exists(ingFilePath))
             {
-                //reader.ReadLine();
                 string name = reader.ReadLine();
                 string description = reader.ReadLine();
                 double quantity = double.Parse(reader.ReadLine());
@@ -77,7 +76,8 @@ namespace Assignment5
         /// <summary>
         /// توضیح: از کجا پیدا کنیم یا اگر نداشتیم جایگزین چه چیزی استفاده کنیم
         /// </summary>
-        public string Description {
+        public string Description
+        {
             get;
             set;
         }

@@ -25,7 +25,6 @@ namespace Assignment5
         /// <param name="keywords">کلمات کلیدی</param>
         public Recipe(string title, string instructions,List<Ingredient> ingredients, int servingCount, string cuisine, string[] keywords)
         {
-            // بر عهده دانشجو
             Title = title;
             Instructions = instructions;
             ServingCount = servingCount;
@@ -47,7 +46,6 @@ namespace Assignment5
         /// <param name="keywords">کلمات کلیدی</param>
         public Recipe(string title, string instructions, int ingredientCount, int servingCount, string cuisine, string[] keywords)
         {
-            // بر عهده دانشجو
             Title = title;
             Instructions = instructions;
             ServingCount = servingCount;
@@ -62,7 +60,6 @@ namespace Assignment5
         /// <param name="writer">شیء مورد استفاده برای نوشتن در فایل</param>
         public void Serialize(StreamWriter writer,string ingFilePath)
         {
-            // بر عهده دانشجو
             writer.WriteLine(Title);
             writer.WriteLine(Instructions);
             writer.WriteLine(ServingCount);
@@ -80,11 +77,9 @@ namespace Assignment5
                 {
                     if (i != null)
                     {
-                        i.Serialize(write,ingFilePath);
+                        i.Serialize(write);
                     }
                 }
-                //write.Close();
-                //write.Dispose();
             }
         }
 
@@ -95,15 +90,10 @@ namespace Assignment5
         /// <returns>شیء جدید از نوع Recipe</returns>
         public static Recipe Deserialize(StreamReader reader, string recipeFilePath,string ingFilePath)
         {
-            // بر عهده دانشجو
-            //if (File.Exists(recipeFilePath))
-            //{
-                //int recipeListLen = int.Parse(reader.ReadLine());
                 string title = reader.ReadLine();
                 string instructions = reader.ReadLine();
                 int servingCount = int.Parse(reader.ReadLine());
                 string cuisine = reader.ReadLine();
-                //string[] keywords = reader.ReadLine().Split();
                 int keywordsLen = int.Parse(reader.ReadLine());
                 string[] keywords = new string[keywordsLen];
                 for(int i = 0; i < keywordsLen; i++)
@@ -121,9 +111,6 @@ namespace Assignment5
                     }
                     return new Recipe(title, instructions, ing, servingCount, cuisine, keywords);
                 }
-            //}
-            //else
-            //return null;
         }
 
         /// <summary>
@@ -178,7 +165,6 @@ namespace Assignment5
         /// <returns>عمل اضافه کردن موفقیت آمیز انجام شد یا خیر. در صورت تکمیل ظرفیت مقدار برگشتی "خیر" میباشد.</returns>
         public bool AddIngredient(Ingredient ingredient)
         {
-            // بر عهده دانشجو
             ingredients.Add(ingredient);
             return true;
         }
@@ -190,7 +176,6 @@ namespace Assignment5
         /// <returns>آیا حداقل یک ماده اولیه حذف شد؟</returns>
         public bool RemoveIngredient(string name)
         {
-            // بر عهده دانشجو
             for(int i =0;i<ingredients.Count && ingredients[i] != null; i++)
             {
                 if(ingredients[i].Name == name)
@@ -209,10 +194,9 @@ namespace Assignment5
         /// <param name="newServingCount">تعداد افراد جدید</param>
         public void UpdateServingCount(int newServingCount)
         {
-            // بر عهده دانشجو\
             for(int i = 0; i < Ingredients.Count && Ingredients[i] != null; i++)
             {
-                Ingredients[i].Quantity *= newServingCount / ServingCount;
+                Ingredients[i].Quantity *= (double)newServingCount / ServingCount;
             }
             ServingCount = newServingCount;
         }
@@ -233,7 +217,6 @@ namespace Assignment5
             private set
             {
                 ingredients = value;
-                // بر عهده دانشجو
             }
         }
 
@@ -243,7 +226,6 @@ namespace Assignment5
         /// <returns> a string of the selected recipe info </returns>
         public override string ToString()
         {
-            // بر عهده دانشجو
             string info = "Title: " + Title + "\nInstructions: " + Instructions
                 + "\nCuisine: " + Cuisine + "\nKeywords:\n";
             for (int i = 0; i < Ingredients.Count && Ingredients[i] != null; i++)
