@@ -20,8 +20,8 @@
             <ComboBox x:Name="SearchKind"
                       Height="30"
                   DockPanel.Dock="Right"
-            HorizontalAlignment="Stretch" 
-            SelectionChanged="SearchKind_SelectionChanged" Grid.Row="1" Width="114">
+            HorizontalAlignment="Stretch"
+             Grid.Row="1" Width="114">
                 <ComboBoxItem Content="Keyword"/>
                 <ComboBoxItem Content="Cuisine"/>
                 <ComboBoxItem Content="Title"/>

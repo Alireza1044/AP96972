@@ -149,10 +149,10 @@ namespace Assignment7
             }
         }
 
-        private void SearchKind_SelectionChanged(object sender,SelectionChangedEventArgs e)
-        {
+        //private void SearchKind_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
 
 
         /// <summary>
