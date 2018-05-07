@@ -25,8 +25,6 @@ namespace Assignment7
         int i = 0;
         RecipeBook recipeBook = new RecipeBook("reBook", 20);
         List<Recipe> recipes;
-        //private const string recipeFilePath = @"recipes.txt";
-        //private const string ingredientFilePath = @"ingredients.txt";
         public MainWindow()
         {
             InitializeComponent();
@@ -70,7 +68,6 @@ namespace Assignment7
             for (int i = 0; i < recipes.Count && recipes[i] != null; i++)
             {
                 ListBoxItem item = new ListBoxItem();
-                //item.Content = $"دستور غذای شماره {i+1}";
                 item.Content = recipes[i].Title;
                 RecipeListBox.Items.Add(item);
             }
@@ -148,12 +145,6 @@ namespace Assignment7
                 MessageBox.Show("Please select an item!");
             }
         }
-
-        //private void SearchKind_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-
-        //}
-
 
         /// <summary>
         /// searches in recipes
