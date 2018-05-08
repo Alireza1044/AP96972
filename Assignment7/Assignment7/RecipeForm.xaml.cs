@@ -93,7 +93,14 @@ namespace Assignment7
         /// </summary>
         public Recipe recipes
         {
-            get;
+            get
+            {
+                return recipe;
+            }
+            set
+            {
+                recipe = value;
+            }
         }
 
         /// <summary>
