@@ -9,7 +9,7 @@ namespace OOCalculator
 
         public UnaryOperator()
         {
-            throw new NotImplementedException();
+
         }
 
         public UnaryOperator(TextReader reader)

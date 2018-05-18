@@ -5,14 +5,20 @@ namespace OOCalculator
 {
     public class SquareOperator : UnaryOperator
     {
+        public string Symbol;
+        public int LHS;
+
         public SquareOperator(TextReader reader)
+            :base()
         {
-            throw new NotImplementedException();
+            Symbol =reader.ReadLine();
+            LHS = int.Parse(reader.ReadLine());
+
         }
 
-        public override string OperatorSymbol => throw new NotImplementedException();
+        public override string OperatorSymbol => "Square";
 
-        public override double Evaluate() => throw new NotImplementedException();
+        public override double Evaluate() => (LHS*LHS);
 
     }
 }

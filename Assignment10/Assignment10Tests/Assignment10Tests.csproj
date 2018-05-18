@@ -59,6 +59,7 @@
     <Compile Include="AddOperatorTests.cs" />
     <Compile Include="MultiplyOperatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SquareOperatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
