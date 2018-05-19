@@ -19,7 +19,7 @@ namespace OOCalculator.Tests
             File.WriteAllText(path, "9\n2");
             DivideOperator divide = new DivideOperator(File.OpenText(path));
             Assert.AreEqual(divide.Evaluate(), 4.5);
-            Assert.AreEqual(divide.ToString(), "(9 / 2)");
+            Assert.AreEqual(divide.ToString(), "(9/2)");
         }
     }
 }
