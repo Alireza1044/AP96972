@@ -5,6 +5,10 @@ namespace OOCalculator
 {
     public class NegateOperator : UnaryOperator
     {
+        /// <summary>
+        /// receives a textreader and calls the base class constructor
+        /// </summary>
+        /// <param name="reader"></param>
         public NegateOperator(TextReader reader)
             :base(reader)
         {
@@ -12,6 +16,10 @@ namespace OOCalculator
 
         public override string OperatorSymbol => "-";
 
+        /// <summary>
+        /// counts the operand
+        /// </summary>
+        /// <returns> the negate of the operand </returns>
         public override double Evaluate() => -1 * Operand.Evaluate(); 
     }
 }
