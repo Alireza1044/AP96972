@@ -15,44 +15,11 @@ namespace OOCalculator.Tests
         [TestMethod()]
         public void AddOperatorTest()
         {
-            StreamWriter writer;
-            StreamReader reader;
-            AddOperator plus;
-
-            using (writer = new StreamWriter(@"writer.txt"))
-            {
-                writer.WriteLine("Add");
-                writer.WriteLine("3");
-                writer.WriteLine("5");
-            }
-            using (reader = new StreamReader(@"writer.txt"))
-            {
-                plus = new AddOperator(reader);
-            }
-            Assert.AreEqual(plus.LHS, 3);
-            Assert.AreEqual(plus.RHS, 5);
-            Assert.AreEqual(plus.Symbol, "Add");
-        }
-
-        [TestMethod()]
-        public void EvaluateTest()
-        {
-            StreamWriter writer;
-            StreamReader reader;
-            AddOperator plus;
-
-            using (writer = new StreamWriter(@"writer.txt"))
-            {
-                writer.WriteLine("Add");
-                writer.WriteLine("3");
-                writer.WriteLine("5");
-            }
-            using (reader = new StreamReader(@"writer.txt"))
-            {
-                plus = new AddOperator(reader);
-            }
-            Assert.AreEqual(8, plus.Evaluate());
-            Assert.AreEqual("+", plus.OperatorSymbol);
+            string path = @"addtest";
+            File.WriteAllText(path, "5\n3");
+            AddOperator add = new AddOperator(File.OpenText(path));
+            Assert.AreEqual(add.Evaluate(), 8);
+            Assert.AreEqual(add.ToString(), "(5+3)");
         }
     }
 }

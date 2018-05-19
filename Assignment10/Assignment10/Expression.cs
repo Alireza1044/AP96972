@@ -7,7 +7,7 @@ namespace OOCalculator
     {
         public abstract double Evaluate();
 
-        public static Expression BuildExpressionTree(StreamReader reader)
+        public static Expression BuildExpressionTree(TextReader reader)
         {
             return Expression.GetNextExpression(reader);
         }

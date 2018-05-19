@@ -5,20 +5,14 @@ namespace OOCalculator
 {
     public class AddOperator : BinaryOperator
     {
-        public string Symbol;
-        public int LHS;
-        public int RHS;
-
         public AddOperator(TextReader reader) 
-            :base()
+            :base(reader)
         {
-            Symbol = reader.ReadLine();
-            LHS = int.Parse(reader.ReadLine());
-            RHS = int.Parse(reader.ReadLine());
+
         }
 
         public override string OperatorSymbol => "+";
 
-        public override double Evaluate() => (LHS+RHS);
+        public override double Evaluate() => (LHS.Evaluate()+RHS.Evaluate());
     }
 }

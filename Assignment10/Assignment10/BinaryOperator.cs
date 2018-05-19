@@ -7,20 +7,20 @@ namespace OOCalculator
     {
         protected Expression LHS;
         protected Expression RHS;
-
+        
         public BinaryOperator()
         {
-
         }
 
         public BinaryOperator(TextReader reader)
         {
-            throw new NotImplementedException();
+            this.LHS = Expression.BuildExpressionTree(reader);
+            this.RHS = Expression.BuildExpressionTree(reader);
         }
 
         public abstract string OperatorSymbol { get; }
 
-        public sealed override string ToString() => throw new NotImplementedException();
+        public sealed override string ToString() => $"({LHS.Evaluate()}{this.OperatorSymbol}{RHS.Evaluate()})";
 
     }
 }

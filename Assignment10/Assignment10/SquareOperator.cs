@@ -9,7 +9,7 @@ namespace OOCalculator
         public int LHS;
 
         public SquareOperator(TextReader reader)
-            :base()
+            :base(reader)
         {
             Symbol =reader.ReadLine();
             LHS = int.Parse(reader.ReadLine());
