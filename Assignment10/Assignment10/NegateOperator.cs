@@ -5,7 +5,7 @@ namespace OOCalculator
 {
     public class NegateOperator : UnaryOperator
     {
-       public NegateOperator(TextReader reader)
+        public NegateOperator(TextReader reader)
             :base(reader)
         {
         }

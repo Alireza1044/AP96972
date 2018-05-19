@@ -7,10 +7,6 @@ namespace OOCalculator
     {
         protected Expression LHS;
         protected Expression RHS;
-        
-        public BinaryOperator()
-        {
-        }
 
         public BinaryOperator(TextReader reader)
         {

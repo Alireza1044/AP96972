@@ -61,6 +61,7 @@
     <Compile Include="ExpressionTests.cs" />
     <Compile Include="MultiplyOperatorTests.cs" />
     <Compile Include="NegateOperatorTests.cs" />
+    <Compile Include="NumberExpressionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqrtOperatorTests.cs" />
     <Compile Include="SquareOperatorTests.cs" />

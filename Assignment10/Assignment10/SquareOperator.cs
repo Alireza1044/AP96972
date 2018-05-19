@@ -9,12 +9,11 @@ namespace OOCalculator
         public SquareOperator(TextReader reader)
             :base(reader)
         {
-            
         }
 
         public override string OperatorSymbol => "Square";
 
-        public override double Evaluate() => Operand.Evaluate() * Operand.Evaluate();
+        public override double Evaluate() => Math.Pow(Operand.Evaluate(),2);
 
     }
 }

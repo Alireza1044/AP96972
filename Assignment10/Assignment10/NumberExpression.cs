@@ -14,6 +14,6 @@ namespace OOCalculator
 
         public override double Evaluate() => Number;
 
-        public override string ToString() => throw new NotImplementedException();
+        public override string ToString() => $"{Number}";
     }
 }

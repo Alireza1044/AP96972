@@ -7,11 +7,6 @@ namespace OOCalculator
     {
         protected Expression Operand;
 
-        public UnaryOperator()
-        {
-
-        }
-
         public UnaryOperator(TextReader reader)
         {
             this.Operand = Expression.BuildExpressionTree(reader);
