@@ -16,7 +16,7 @@ namespace OOCalculator
 
         public abstract string OperatorSymbol { get; }
 
-        public sealed override string ToString() => $"({LHS.Evaluate()}{this.OperatorSymbol}{RHS.Evaluate()})";
+        public sealed override string ToString() => $"({LHS}{this.OperatorSymbol}{RHS})";
 
     }
 }

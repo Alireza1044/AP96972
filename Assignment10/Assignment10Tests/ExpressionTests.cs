@@ -35,7 +35,8 @@ namespace OOCalculator.Tests
                 "4"
                 );
             Assert.AreEqual(Expression.BuildExpressionTree(File.OpenText(path)).Evaluate(), -51);
-            //Assert.AreEqual(Expression.BuildExpressionTree(File.OpenText(path)).ToString(),"-5*(3+(10/(1+Square(3))))");
+            Assert.AreEqual(Expression.BuildExpressionTree(File.OpenText(path)).ToString(),
+                @"(6*(-(5)-(3+(10/(1+(Sqrt(9)+Square(4)))))))");
         }
     }
 }

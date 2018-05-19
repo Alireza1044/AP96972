@@ -12,7 +12,7 @@ namespace OOCalculator
             this.Operand = Expression.BuildExpressionTree(reader);
         }
 
-        public sealed override string ToString() => $"{this.OperatorSymbol}({this.Operand.Evaluate()})";
+        public sealed override string ToString() => $"{this.OperatorSymbol}({this.Operand})";
 
         public abstract string OperatorSymbol { get; }
     }
