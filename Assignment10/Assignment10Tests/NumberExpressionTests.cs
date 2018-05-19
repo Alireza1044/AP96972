@@ -14,7 +14,9 @@ namespace OOCalculator.Tests
         [TestMethod()]
         public void NumberExpressionTest()
         {
-            Assert.Fail();
+            string numbertest = "5";
+            NumberExpression number = new NumberExpression(numbertest);
+            Assert.AreEqual(number.ToString(), "(5)");
         }
     }
 }
