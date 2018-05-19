@@ -10,7 +10,7 @@ namespace OOCalculator
         public NumberExpression(string line)
         {
             Number = double.Parse(line);
-            Evaluate();
+            //Evaluate();
         }
 
         public override double Evaluate() => Number;

@@ -14,10 +14,10 @@ namespace OOCalculator
 
         public UnaryOperator(TextReader reader)
         {
-            throw new NotImplementedException();
+            this.Operand = Expression.BuildExpressionTree(reader);
         }
 
-        public sealed override string ToString() => throw new NotImplementedException();
+        public sealed override string ToString() => $"{this.OperatorSymbol}({this.Operand.Evaluate()})";
 
         public abstract string OperatorSymbol { get; }
     }
