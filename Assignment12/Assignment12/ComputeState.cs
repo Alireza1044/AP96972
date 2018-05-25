@@ -17,17 +17,17 @@
         public override IState EnterNonZeroDigit(char c)
         {
             // #3 لطفا!
-            return null;
+            return new AccumulateState(this.Calc).EnterNonZeroDigit(c);
         }
 
         public override IState EnterZeroDigit()
         {
             // #4 لطفا
-            return null;
+            return new StartState(this.Calc).EnterZeroDigit();
         }
 
         // #5 لطفا
-        public override IState EnterOperator(char c) => null;
+        public override IState EnterOperator(char c) => ProcessOperator(new StartState(Calc),c);
 
         public override IState EnterPoint()
         {

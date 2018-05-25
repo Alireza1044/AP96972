@@ -12,7 +12,7 @@ namespace SimpleCalculator.Tests
         public void PointStateTest() => RunTest<PointState>(keys: ".......q", expectedDisplay: "0.");
 
         [TestMethod()]
-        public void StartStateTest() => RunTest<ComputeState>(keys: "12+q", expectedDisplay: "12");
+        public void StartStateTest() => RunTest<StartState>(keys: "12+q", expectedDisplay: "12");
 
         [TestMethod()]
         public void ErrorStateTest() => RunTest<ErrorState>(keys: "12+5==q", expectedDisplay: "17");
@@ -36,7 +36,7 @@ namespace SimpleCalculator.Tests
         public void DivideTest() => RunTest<ComputeState>(keys: "10/2=q", expectedDisplay: "5");
 
         [TestMethod()]
-        public void AccumulationTest() => RunTest<AccumulateState>(keys: "10000000q", expectedDisplay: "10000000");
+        public void AccumulationTest() => RunTest<AccumulateState>(keys: "10q", expectedDisplay: "10");
 
         [TestMethod()]
         public void StartingPointTest() => RunTest<ComputeState>(keys: ".5*2=q", expectedDisplay: "1");

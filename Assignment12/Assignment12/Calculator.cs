@@ -25,7 +25,7 @@ namespace SimpleCalculator
 
         public void PrintDisplay()
         {
-            Console.Clear();
+            //Console.Clear();
             Console.Write(this.Display);
         }
 

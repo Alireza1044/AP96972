@@ -7,7 +7,7 @@ namespace SimpleCalculator
         public AccumulateState(Calculator calc) : base(calc) { }
 
         // #7 لطفا
-        public override IState EnterEqual() => null;
+        public override IState EnterEqual() => ProcessOperator(new ComputeState(Calc));
         public override IState EnterZeroDigit() => EnterNonZeroDigit('0');
         public override IState EnterNonZeroDigit(char c)
         {
@@ -17,12 +17,13 @@ namespace SimpleCalculator
         }
 
         // #9 لطفا!
-        public override IState EnterOperator(char c) => null;
+        public override IState EnterOperator(char c) => ProcessOperator(new StartState(Calc),c);
 
         public override IState EnterPoint()
         {
             // #10 لطفا!
-            return null;
+            this.Calc.Display += '.';
+            return new PointState(Calc);
         }
     }
 }
