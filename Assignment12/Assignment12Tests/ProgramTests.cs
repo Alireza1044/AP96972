@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using SimpleCalculator;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SimpleCalculator.Tests
 {
@@ -41,10 +42,43 @@ namespace SimpleCalculator.Tests
         [TestMethod()]
         public void StartingPointTest() => RunTest<ComputeState>(keys: ".5*2=q", expectedDisplay: "1");
 
+        [TestMethod()]
+        public void ComputeStateTest1() => RunTest<ComputeState>(keys: ".5*2=/10=q", expectedDisplay: "0.1");
+
+        [TestMethod()]
+        public void ComputeStateTest2() => RunTest<ComputeState>(keys: ".5*2=10=0=q", expectedDisplay: "0");
+
+        [TestMethod()]
+        public void ComputeStateTest3() => RunTest<ComputeState>(keys: ".5*2=.1.1=q", expectedDisplay: "0.11");
+
+        [TestMethod()]
+        public void StartStateTest1() => RunTest<ComputeState>(keys: "+6=q", expectedDisplay: "6");
+
+        [TestMethod()]
+        public void ProgramTest() => RunTest<StartState>(keys: "cq", expectedDisplay: "0");
+
+        [TestMethod()]
+        public void ComputeStateTest4() => RunTest<ComputeState>(keys: "5^2=-3=q", expectedDisplay: "22");
+
+        [TestMethod()]
+        public void ErrorStateTest2() => RunTest<StartState>(keys: "12+5==0q", expectedDisplay: "17");
+
+        [TestMethod()]
+        public void ErrorStateTest3() => RunTest<StartState>(keys: "12+5===q", expectedDisplay: "17");
+
+        [TestMethod()]
+        public void ErrorStateTest4() => RunTest<StartState>(keys: "12+5==1q", expectedDisplay: "17");
+
+        [TestMethod()]
+        public void ErrorStateTest5() => RunTest<StartState>(keys: "12+5==.q", expectedDisplay: "17");
+
+        [TestMethod()]
+        public void ErrorStateTest6() => RunTest<StartState>(keys: "12+5==+q", expectedDisplay: "17");
+
         private void RunTest<ExpectedState>(string keys, string expectedDisplay)
         {
             int i = 0;
-            Calculator c = Program.RunCalculator(() => keys[i++]);
+            Calculator c = Program.RunCalculator(() => keys[i++], () => { });
             Assert.AreEqual(c.Display, expectedDisplay);
             Assert.IsTrue(c.State is ExpectedState);
         }

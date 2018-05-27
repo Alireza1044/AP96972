@@ -4,16 +4,17 @@ namespace SimpleCalculator
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            RunCalculator(() => Console.ReadKey().KeyChar);
+            RunCalculator(() => Console.ReadKey().KeyChar,Console.Clear);
         }
 
-        public static Calculator RunCalculator(Func<char> GetKey)
+        public static Calculator RunCalculator(Func<char> GetKey , Action ClearConsole)
         {
             Calculator calc = new Calculator();
             while (true)
             {
+                ClearConsole();
                 calc.PrintDisplay();
                 char key = GetKey();
                 switch (key)
@@ -28,7 +29,10 @@ namespace SimpleCalculator
                     case (char)ConsoleKey.Enter:
                         calc.EnterEqual();
                         break;
-                    case (char)ConsoleKey.Escape:
+                    //case (char)ConsoleKey.Escape:
+                    //    calc.Clear();
+                    //    break;
+                    case 'c':
                         calc.Clear();
                         break;
                     case var c when c != '0' && char.IsDigit(c):
