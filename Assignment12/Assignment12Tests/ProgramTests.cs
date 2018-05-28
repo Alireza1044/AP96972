@@ -75,11 +75,12 @@ namespace SimpleCalculator.Tests
         [TestMethod()]
         public void ErrorStateTest6() => RunTest<StartState>(keys: "12+5==+q", expectedDisplay: "17");
 
+
         private void RunTest<ExpectedState>(string keys, string expectedDisplay)
         {
             int i = 0;
             Calculator c = Program.RunCalculator(() => keys[i++], () => { });
-            Assert.AreEqual(c.Display, expectedDisplay);
+            Assert.AreEqual(c.Display, expectedDisplay); 
             Assert.IsTrue(c.State is ExpectedState);
         }
 
