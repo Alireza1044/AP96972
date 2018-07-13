@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    class Logger : ILogger
+    public class Logger : ILogger
     {
         public delegate void OnLogEventDelegate(LogEntry entry);
 

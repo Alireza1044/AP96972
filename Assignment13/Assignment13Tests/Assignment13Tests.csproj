@@ -59,7 +59,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="ConcurrentLogWriterTests.cs" />
     <Compile Include="CsvLogFormatterTests.cs" />
     <Compile Include="LogWriterPerfTests.cs" />
     <Compile Include="PrivacyScrubberTest.cs" />
@@ -70,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Assignment13App\Assignment13App\Assignment13App.csproj">
+      <Project>{404B87DF-8E4E-462D-A57D-63E7DB2CCA7A}</Project>
+      <Name>Assignment13App</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Assignment13\Assignment13.csproj">
       <Project>{F87341A1-D6FB-4322-9976-9510B0115510}</Project>
       <Name>Assignment13</Name>

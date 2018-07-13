@@ -1,22 +1,27 @@
-﻿using System;
+﻿using Logger;
+using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Logger
 {
-    public class ConcurrentLogWriter: GuardedLogWriter
+    public class LockedQueueLogWriter : GuardedLogWriter
     {
-        protected ConcurrentQueue<string> WriteQueue = new ConcurrentQueue<string>();
+        protected Queue<string> WriteQueue = new Queue<string>();
         protected AutoResetEvent QueueBecameNonEmpty = new AutoResetEvent(true);
         protected AutoResetEvent QueueIsFlushed = new AutoResetEvent(false);
         protected Thread WriteThreadHandle { get; }
         protected bool Disposing { get; set; } = false;
 
-        public ConcurrentLogWriter() { }
+        public LockedQueueLogWriter() { }
 
-        public ConcurrentLogWriter(TextWriter writer)
-            :base(writer)
+        public LockedQueueLogWriter(TextWriter writer)
+            : base(writer)
         {
             WriteThreadHandle = new Thread(new ThreadStart(WriteMethod));
             WriteThreadHandle.Start();
@@ -24,15 +29,16 @@ namespace Logger
 
         protected void WriteMethod()
         {
-            while(true)
+            while (true)
             {
                 QueueBecameNonEmpty.WaitOne(1000);
                 string line;
-                while(WriteQueue.TryDequeue(out line))
+                lock (this)
+                {
+                    while((line = WriteQueue.Dequeue()) != null)
                     Writer.WriteLine(line);
-
-                Writer.Flush();
-
+                }
+                    Writer.Flush();
                 if (this.Disposing)
                 {
                     Writer.Dispose();
@@ -52,11 +58,17 @@ namespace Logger
 
         public override void WriteLine(string line)
         {
-            WriteQueue.Enqueue(line);
-            QueueBecameNonEmpty.Set();
+            lock (this) {
+                WriteQueue.Enqueue(line);
+                QueueBecameNonEmpty.Set();
+            }
         }
 
         public override GuardedLogWriter CreateInstance(TextWriter writer)
             => new ConcurrentLogWriter(writer);
     }
 }
+
+
+
+

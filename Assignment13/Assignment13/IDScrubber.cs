@@ -12,9 +12,9 @@ namespace Logger
 
         /// <summary>
         /// Regular expression for ID:
-        /// 521-32-1212
+        /// 521-321212
         /// </summary>
-        protected override Regex PIIRegEx => new Regex(@"\(?[0-9]{3}\)?[ -]*[0-9]{2}[ -]*[0-9]{4}");
+        protected override Regex PIIRegEx => new Regex(@"\d{3}[-]\d{7}");
 
         public override string Scrub(string content) => this.MaskPII(content, this.MaskNumbers);
     }

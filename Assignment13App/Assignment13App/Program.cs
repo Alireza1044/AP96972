@@ -9,9 +9,11 @@ namespace Logger
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             ConsoleLogger clogger = new ConsoleLogger();
+
+            Logger.Instance.OnLog += e => Console.WriteLine(e.Message.Length);
 
             FileLogger<LockedLogWriter> errorLogger = new FileLogger<LockedLogWriter>(
                 CsvLogFormatter.Instance,
@@ -29,6 +31,22 @@ namespace Logger
                 LogSources.All,
                 true);
 
+            FileLogger<LockedLogWriter> allLogger1 = new FileLogger<LockedLogWriter>(
+                CsvLogFormatter.Instance,
+                new PrivacyScrubber(IDScrubber.Instance, FullNameScrubber.Instance),
+                new IncrementalLogFileName(@"c:\log", "a13_all1", CsvLogFormatter.Instance.FileExtention),
+                LogLevels.All,
+                LogSources.All,
+                true);
+
+            FileLogger<LockedLogWriter> ClientLogger = new FileLogger<LockedLogWriter>(
+                CsvLogFormatter.Instance,
+                new PrivacyScrubber(PhoneNumberScrubber.Instance, IDScrubber.Instance, FullNameScrubber.Instance),
+                new IncrementalLogFileName(@"c:\log", "a13_Client", CsvLogFormatter.Instance.FileExtention),
+                LogLevels.All,
+                LogSources.Create(LogSource.Client),
+                true);
+
             FileLogger<LockedLogWriter> uiLogger = new FileLogger<LockedLogWriter>(
                 CsvLogFormatter.Instance,
                 new PrivacyScrubber(PhoneNumberScrubber.Instance, IDScrubber.Instance, FullNameScrubber.Instance),
@@ -36,10 +54,12 @@ namespace Logger
                 LogLevels.All,
                 LogSources.Create(LogSource.UI),
                 true);
-            
-            
+
+
             Logger.Loggers.Add(errorLogger);
+            Logger.Loggers.Add(ClientLogger);
             Logger.Loggers.Add(allLogger);
+            Logger.Loggers.Add(allLogger1);
             Logger.Loggers.Add(clogger);
             Logger.Loggers.Add(uiLogger);
 
@@ -56,6 +76,7 @@ namespace Logger
             Logger.Instance.Warn(LogSource.Client, "User national ID added", ("ID", "232-12-1212"));
             Logger.Instance.Debug(LogSource.UI, "Display error to user");
             Logger.Instance.Error(LogSource.Client, "Unable to add user", ("ID", "232-12-1212"));
+            Console.ReadKey();
         }
     }
 }

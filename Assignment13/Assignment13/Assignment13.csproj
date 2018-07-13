@@ -44,12 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractScrubber.cs" />
+    <Compile Include="CCScrubber.cs" />
     <Compile Include="ConcurrentLogWriter.cs" />
     <Compile Include="ConsoleLogFormatter.cs" />
     <Compile Include="ConsoleLogger.cs" />
     <Compile Include="CsvFormatter.cs" />
     <Compile Include="DBLogger.cs" />
+    <Compile Include="EmailScrubber.cs" />
     <Compile Include="FileLogger.cs" />
+    <Compile Include="FileLoggerFactory.cs" />
     <Compile Include="FileNamePolicy.cs" />
     <Compile Include="FullNameScrubber.cs" />
     <Compile Include="GuardedLogWriter.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="IncrementalLogFileName.cs" />
     <Compile Include="IPrivacyScrubber.cs" />
     <Compile Include="LockedLogWriter.cs" />
+    <Compile Include="LockedQueueLogWriter.cs" />
     <Compile Include="LogEntry.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="NoLockLogWriter.cs" />
@@ -68,7 +72,9 @@
     <Compile Include="PrivacyScrubberFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeBasedLogFileName.cs" />
+    <Compile Include="WeekDayLogFileName.cs" />
     <Compile Include="XmlLogFormatter.cs" />
+    <Compile Include="XsvFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

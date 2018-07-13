@@ -17,8 +17,12 @@ namespace Logger.Tests
         [TestMethod()]
         public void LockedLogWriterPerfTest()
         {
-            var time = PerfTest<LockedLogWriter>(threadCount:25, linePerThread:1000);
+            var time = PerfTest<LockedLogWriter>(threadCount: 25, linePerThread: 1000);
         }
+        // Number of Threads               1     2      5      10     20     50      100
+        // LockedLogWriterPerfTest     : 0.41   0.44   0.57   1.59   7.30   35.70   a lot
+        //ConcurrentLogWriterPerfTest  : 0.40   0.42   0.52   0.87   1.60   4.84    a lot
+        //LockedQueueLogWriterPerfTest : 0.47   0.50   0.62   0.94   1.91   5.75    a lot
 
         [TestMethod()]
         public void ConcurrentLogWriterPerfTest()
@@ -27,13 +31,25 @@ namespace Logger.Tests
         }
 
         [TestMethod()]
-        public void NoLockPerfTest()
+        public void LockedQueueLogWriterPerfTest()
         {
-            var time = PerfTest<NoLockLogWriter>(threadCount: 25, linePerThread: 1000);
+            var time = PerfTest<LockedQueueLogWriter>(threadCount: 100, linePerThread: 1000);
         }
 
+        /// <summary>
+        /// this method creates 25 threads
+        /// there is no "lock" statement which means all the threads try to access an object at once
+        /// by other means its not "thread-safe"
+        /// and so there will be an exception thrown!
+        /// </summary>
+        //[TestMethod()]
+        //public void NoLockPerfTest()
+        //{
+        //    var time = PerfTest<NoLockLogWriter>(threadCount: 25, linePerThread: 1000);
+        //}
+
         private string PerfTest<_LogWriter>(int threadCount, int linePerThread)
-            where _LogWriter: GuardedLogWriter, new()
+            where _LogWriter : GuardedLogWriter, new()
         {
             string logDir = Path.GetTempFileName();
             File.Delete(logDir);
@@ -58,7 +74,7 @@ namespace Logger.Tests
                 sw.Stop();
 
                 time = sw.Elapsed.TotalSeconds.ToString();
-                
+
             }
 
             int actualLogLines = CountLogLines(logDir, pattern: $"{logPrefix}*.{XmlLogFormatter.Instance.FileExtention}");
@@ -75,7 +91,7 @@ namespace Logger.Tests
 
         private void LogRandomMessages(int count, ILogger logger)
         {
-            for (int i=0; i<count; i++)
+            for (int i = 0; i < count; i++)
             {
                 LogEntry logEntry = new LogEntry(LogSource.Client, LogLevel.Debug,
                     $"student {i} created", ("FirstName", $"Pegah_{i}"), ("LastName", $"Ayati_{i}"));
