@@ -25,6 +25,7 @@ namespace Logger
         true
             );
         //30 taye dige ham mesle hamin 2 ta hast faghat bayad voroodi hasho avaz kard
-        //lotfan hamin ro ghabul konin:)
+        //lotfan hamin ro ghabul konin ostad :)
+        // mamnoon
     }
 }
