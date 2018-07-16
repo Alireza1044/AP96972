@@ -1,0 +1,15 @@
+﻿<Window x:Class="FinalProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500" ResizeMode="NoResize" WindowStyle="None">
+    <StackPanel x:Name="MainStack" Background="#FF3BC5CC">
+        <StackPanel x:Name="SecondaryStack" Height="50" Background="#FF0051FF">
+            <Button x:Name="AddBtnMain" Height="35" Width="35" Margin="7.5" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{x:Null}" Foreground="Black" Content="+" FontFamily="Segoe UI Symbol" FontSize="16" Click="AddBtnMain_Click" />
+        </StackPanel>
+        <ListBox x:Name="NotesTitlesListBox" Height="450"  VerticalAlignment="Bottom" Background="#FF3BC5CC"></ListBox>
+    </StackPanel>
+</Window>
