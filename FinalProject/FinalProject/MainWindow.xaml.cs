@@ -27,7 +27,8 @@ namespace FinalProject
         public MainWindow()
         {
             InitializeComponent();
-            UpdateListBox();
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+			UpdateListBox();
         }
 
         private void AddBtnMain_Click(object sender, RoutedEventArgs e)

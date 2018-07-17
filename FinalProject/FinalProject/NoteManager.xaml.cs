@@ -31,7 +31,8 @@ namespace FinalProject
         public NoteManager()
         {
             InitializeComponent();
-        }
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+		}
 
         public NoteManager(string ID)
         {
@@ -88,6 +89,13 @@ namespace FinalProject
         private void NoteDescriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void ColorChange_Click(object sender, RoutedEventArgs e)
+        {
+            ColorChange cg = new ColorChange();
+            this.Hide();
+            cg.ShowDialog();
         }
     }
 }
