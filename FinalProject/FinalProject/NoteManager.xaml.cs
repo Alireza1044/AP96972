@@ -36,13 +36,19 @@ namespace FinalProject
 
         public NoteManager(string ID)
         {
-            InitializeComponent();
-            EditingNote = noteLogic.GetNote(noteRepository.GetNote(ID));
-            //EditingNote.Name = NoteTitleTextBox.Text;
-            //EditingNote.Description = NoteDescriptionTextBox.Text;
+			InitializeComponent();
+			EditingNote = noteLogic.GetNote(noteRepository.GetNote(ID));
             NoteDescriptionTextBox.Text = EditingNote.Description;
             NoteTitleTextBox.Text = EditingNote.Name;
-            Editing = true;
+			BrushConverter bc = new BrushConverter();
+			Brush brush = (Brush)bc.ConvertFrom(EditingNote.DarkColor.ToString());
+			brush.Freeze();
+			Brush brush1 = (Brush)bc.ConvertFrom(EditingNote.LightColor.ToString());
+			brush.Freeze();
+			this.SecondaryEditStack.Background = brush;
+			this.NoteDescriptionTextBox.Background = brush1;
+			WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+			Editing = true;
         }
 
         private void BtnDelEdit_Click(object sender, RoutedEventArgs e)
@@ -67,6 +73,8 @@ namespace FinalProject
             {
                 EditingNote.Name = NoteTitleTextBox.Text;
                 EditingNote.Description = NoteDescriptionTextBox.Text;
+				EditingNote.DarkColor = this.SecondaryEditStack.Background.ToString();
+				EditingNote.LightColor = this.NoteDescriptionTextBox.Background.ToString();
                 noteLogic.UpdateNote(EditingNote);
             }
             else
@@ -74,6 +82,8 @@ namespace FinalProject
                 EditingNote.Name = NoteTitleTextBox.Text;
                 EditingNote.Description = NoteDescriptionTextBox.Text;
                 EditingNote.ID = DateTime.Now.ToString();
+				EditingNote.DarkColor = this.SecondaryEditStack.Background.ToString();
+				EditingNote.LightColor = this.NoteDescriptionTextBox.Background.ToString();
                 noteLogic.NewNote(EditingNote);
             }
             mw = new MainWindow();
@@ -96,6 +106,9 @@ namespace FinalProject
             ColorChange cg = new ColorChange();
             this.Hide();
             cg.ShowDialog();
+			this.SecondaryEditStack.Background = cg.Foreground;
+			this.NoteDescriptionTextBox.Background = cg.Background;
+			this.Show();
         }
     }
 }

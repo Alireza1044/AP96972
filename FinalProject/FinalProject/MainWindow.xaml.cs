@@ -57,5 +57,10 @@ namespace FinalProject
                 NotesTitlesListBox.Items.Add(n.Name.ToString() + " => " + n.ID.ToString());
             }
         }
-    }
+
+		private void NoteTitlesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+
+		}
+	}
 }

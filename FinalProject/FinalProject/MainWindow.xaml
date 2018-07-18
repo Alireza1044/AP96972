@@ -10,6 +10,10 @@
         <StackPanel x:Name="SecondaryStack" Height="50" Background="#FF0051FF">
             <Button x:Name="AddBtnMain" Height="35" Width="35" Margin="7.5" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{x:Null}" Foreground="Black" Content="+" FontFamily="Segoe UI Symbol" FontSize="16" Click="AddBtnMain_Click" />
         </StackPanel>
-        <ListBox x:Name="NotesTitlesListBox" Height="450"  VerticalAlignment="Bottom" Background="#FF3BC5CC"></ListBox>
-    </StackPanel>
+		<Grid x:Name="grid" Height="450"  VerticalAlignment="Bottom">
+		<Grid x:Name="theGrid1" Background="#FF3BC5CC">
+        <ListBox x:Name="NotesTitlesListBox" Height="450"  VerticalAlignment="Bottom" Background="#FF3BC5CC" SelectionChanged="NoteTitlesListBox_SelectionChanged"></ListBox>
+			</Grid>
+		</Grid>
+	</StackPanel>
 </Window>

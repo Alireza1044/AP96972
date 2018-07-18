@@ -17,14 +17,15 @@ namespace Business.Tests
     {
         NoteRepository noteRepository = new NoteRepository();
         NoteLogic noteLogic = new NoteLogic();
-        Note note = new Note(name, description, time);
-        static string name = "the test title";
+        Note note = new Note(name, description, time, "#FFCA1F1F", "#FFCA1F1F");
+
+		static string name = "the test title";
         static string description = "this is the test description!";
         static string time = "7/15/2018 6:16:17 PM";
         NoteViewModel _noteViewModel = new NoteViewModel();
-        NoteViewModel noteViewModel = new NoteViewModel(name,description,time);
+        NoteViewModel noteViewModel = new NoteViewModel(name,description,time, "#FFCA1F1F", "#FFCA1F1F");
 
-        [TestMethod()]
+		[TestMethod()]
         public void NewNoteTest()
         {
             noteLogic.NewNote(noteViewModel);

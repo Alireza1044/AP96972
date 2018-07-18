@@ -16,9 +16,10 @@ namespace Repository.Tests
         static string name = "the name";
         static string description = "the test description!";
         static string id = "7/16/2018 11:30:48 AM";
-        Note note = new Note(name, description, id);
+        Note note = new Note(name, description, id,"#FFCA1F1F","#FFCA1F1F");
 
-        [TestMethod()]
+
+		[TestMethod()]
         public void NewNoteTest()
         {
             noteRepository.NewNote(note);

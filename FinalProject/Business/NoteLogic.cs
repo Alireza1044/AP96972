@@ -14,11 +14,12 @@ namespace Business
         NoteRepository noteRepository = new NoteRepository();
 
         public NoteLogic()
-        {
-                FinalProject.Mapping.init();
-        }
+		{
+			FinalProject.Mapping.init();
+			
+		}
 
-        public void NewNote(NoteViewModel noteViewM)
+		public void NewNote(NoteViewModel noteViewM)
         {
             var note = Mapper.Map<Note>(noteViewM);
             noteRepository.NewNote(note);
@@ -47,6 +48,8 @@ namespace Business
             var note = noteRepository.GetNote(noteViewM.ID.ToString());
             note.Name = noteViewM.Name.ToString();
             note.Description = noteViewM.Description.ToString();
+			note.DarkColor = noteViewM.DarkColor.ToString();
+			note.LightColor = noteViewM.LightColor.ToString();
             noteRepository.UpdateNote(note);
         }
     }

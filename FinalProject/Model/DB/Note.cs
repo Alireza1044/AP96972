@@ -13,16 +13,20 @@ namespace Model
     {
         public Note() { }
 
-        public Note(string name,string description,string id)
+        public Note(string name,string description,string id,string lc,string dc)
         {
             Description = description;
             Name = name;
             ID = id;
+			DarkColor = dc;
+			LightColor = lc;
         }
 
         
         public string Name { get; set; }
         public string Description { get; set; }
+		public string LightColor { get; set; }
+		public string DarkColor { get; set; }
         [Key] public string ID { get; set; }
     }
 }

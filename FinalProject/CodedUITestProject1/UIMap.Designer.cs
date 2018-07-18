@@ -14,8 +14,7 @@ namespace CodedUITestProject1
     using System.CodeDom.Compiler;
     using System.Collections.Generic;
     using System.Drawing;
-	using System.IO;
-	using System.Text.RegularExpressions;
+    using System.Text.RegularExpressions;
     using System.Windows.Input;
     using Microsoft.VisualStudio.TestTools.UITest.Extension;
     using Microsoft.VisualStudio.TestTools.UITesting;
@@ -59,22 +58,14 @@ namespace CodedUITestProject1
             // Click '+' button
             Mouse.Click(uIItemButton1, new Point(42, 42));
         }
-		private static string CalculateApplicationPath()
-		{
-
-			var appDir = NUnit.Framework.TestContext.CurrentContext.TestDirectory;
-			appDir += @"/../../../FinalProject/bin/Debug";
-			var applicationPath = Path.Combine(appDir, "FinalProject.exe");
-			return applicationPath;
-		}
-		/// <summary>
-		/// RecordedMethod2 - Use 'RecordedMethod2Params' to pass parameters into this method.
-		/// </summary>
-		public void RecordedMethod2()
+        
+        /// <summary>
+        /// RecordedMethod2 - Use 'RecordedMethod2Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod2()
         {
-			#region Variable Declarations
-			System.Diagnostics.Process.Start(CalculateApplicationPath());
-			WpfWindow uIWpfWindow = this.UIWpfWindow;
+            #region Variable Declarations
+            WpfWindow uIWpfWindow = this.UIWpfWindow;
             WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
             WpfButton uIItemButton = this.UINoteManagerWindow.UIItemButton;
             WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
@@ -113,6 +104,891 @@ namespace CodedUITestProject1
             Mouse.Click(uIWpfWindow, new Point(53, 53));
         }
         
+        /// <summary>
+        /// RecordedMethod3 - Use 'RecordedMethod3Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod3()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(34, 88));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(35, 28));
+
+            // Type '' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod3Params.UINoteTitleTextBoxEditText;
+
+            // Type '{Back}{Back}{Back}{Back}{Back}{Back}' in 'NoteTitleTextBox' text box
+            Keyboard.SendKeys(uINoteTitleTextBoxEdit, this.RecordedMethod3Params.UINoteTitleTextBoxEditSendKeys, ModifierKeys.None);
+
+            // Press keyboard shortcut keys '{LWin}'
+            Keyboard.SendKeys(this.RecordedMethod3Params.SendKeys, ModifierKeys.None);
+
+            // Press keyboard shortcut keys '{LWin}'
+            Keyboard.SendKeys(this.RecordedMethod3Params.SendKeys1, ModifierKeys.None);
+
+            // Press keyboard shortcut keys 'Windows + {Space}'
+            Keyboard.SendKeys(this.RecordedMethod3Params.SendKeys2, ModifierKeys.Windows);
+
+            // Type 'this is the title' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod3Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'this is the test!' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod3Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(53, 51));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(45, 57));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod3Params.UINoteTitleTextBoxEditText2;
+
+            // Type '{Tab}' in 'NoteTitleTextBox' text box
+            Keyboard.SendKeys(uINoteTitleTextBoxEdit, this.RecordedMethod3Params.UINoteTitleTextBoxEditSendKeys1, ModifierKeys.None);
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod3Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(51, 64));
+
+            // Select 'test 1 => 7/18/2018 10:33:03 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod3Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(35, 36));
+
+            // Type 'test 1 edited' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod3Params.UINoteTitleTextBoxEditText3;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(16, 26));
+
+            // Select 'test 1 edited => 7/18/2018 10:33:03 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod3Params.UINotesTitlesListBoxListSelectedItemsAsString1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(31, 16));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(50, 42));
+        }
+        
+        /// <summary>
+        /// RecordedMethod4 - Use 'RecordedMethod4Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod4()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            WpfWindow uINoteManagerWindow = this.UINoteManagerWindow;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(115, 78));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(20, 47));
+
+            // Type 'this is the test' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod4Params.UINoteTitleTextBoxEditText;
+
+            // Type 'this is it' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod4Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(31, 27));
+
+            // Select 'this is the test => 7/18/2018 10:38:21 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod4Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(44, 59));
+
+            // Type 'this is the test (edited)' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod4Params.UINoteTitleTextBoxEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(46, 57));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(55, 45));
+
+            // Click 'NoteManager' window
+            Mouse.Click(uINoteManagerWindow, new Point(393, 12));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod4Params.UINoteTitleTextBoxEditText2;
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod4Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(47, 35));
+
+            // Select 'this is the test (edited) => 7/18/2018 10:38:21 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod4Params.UINotesTitlesListBoxListSelectedItemsAsString1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(67, 36));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(93, 36));
+        }
+        
+        /// <summary>
+        /// RecordedMethod5 - Use 'RecordedMethod5Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod5()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfListItem uITest17182018104023AMListItem = this.UIMainWindowWindow.UINotesTitlesListBoxList.UITest17182018104023AMListItem;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            WpfListItem uIThisisit718201810401ListItem = this.UIMainWindowWindow.UINotesTitlesListBoxList.UIThisisit718201810401ListItem;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(107, 22));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(43, 14));
+
+            // Type 'this is it!' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod5Params.UINoteTitleTextBoxEditText;
+
+            // Type 'this is the test' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod5Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(44, 39));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(46, 49));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod5Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod5Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(27, 23));
+
+            // Double-Click 'test 1 => 7/18/2018 10:40:23 AM' list item
+            Mouse.DoubleClick(uITest17182018104023AMListItem, new Point(281, 17));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(26, 16));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(46, 55));
+
+            // Double-Click 'this is it! => 7/18/2018 10:40:14 AM' list item
+            Mouse.DoubleClick(uIThisisit718201810401ListItem, new Point(312, 30));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(29, 34));
+
+            // Type 'this is it!(edited)' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod5Params.UINoteTitleTextBoxEditText2;
+
+            // Type 'this is the test(edited)' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod5Params.UINoteDescriptionTextBEditText2;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(26, 38));
+        }
+        
+        /// <summary>
+        /// RecordedMethod6 - Use 'RecordedMethod6Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod6()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(75, 71));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(61, 50));
+
+            // Type 'this is it!' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod6Params.UINoteTitleTextBoxEditText;
+
+            // Type 'this is the test' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod6Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(53, 61));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(67, 51));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod6Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod6Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(61, 35));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(40, 28));
+
+            // Type 'yeah' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod6Params.UINoteTitleTextBoxEditText2;
+
+            // Type '{Tab}' in 'NoteTitleTextBox' text box
+            Keyboard.SendKeys(uINoteTitleTextBoxEdit, this.RecordedMethod6Params.UINoteTitleTextBoxEditSendKeys, ModifierKeys.None);
+
+            // Type 'yessss' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod6Params.UINoteDescriptionTextBEditText2;
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(79, 9));
+        }
+        
+        /// <summary>
+        /// AssertMethod1 - Use 'AssertMethod1ExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertMethod1()
+        {
+            #region Variable Declarations
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            #endregion
+
+            // Verify that the 'ControlType' property of 'NoteTitleTextBox' text box equals 'test 1'
+            Assert.AreEqual(this.AssertMethod1ExpectedValues.UINoteTitleTextBoxEditControlType, uINoteTitleTextBoxEdit.ControlType.ToString(), "not test1");
+
+            // Verify that the 'ControlType' property of 'NoteDescriptionTextBox' text box equals 'test 2'
+            Assert.AreEqual(this.AssertMethod1ExpectedValues.UINoteDescriptionTextBEditControlType, uINoteDescriptionTextBEdit.ControlType.ToString(), "not test 2");
+        }
+        
+        /// <summary>
+        /// RecordedMethod7 - Use 'RecordedMethod7Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod7()
+        {
+            #region Variable Declarations
+            WinEdit uINameEdit = this.UIDebugWindow.UIItemWindow.UIFinalProjectexeListItem.UINameEdit;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfListItem uITest117182018105612AListItem = this.UIMainWindowWindow.UINotesTitlesListBoxList.UITest117182018105612AListItem;
+            WpfListItem uITest11edited71820181ListItem = this.UIMainWindowWindow.UINotesTitlesListBoxList.UITest11edited71820181ListItem;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            #endregion
+
+            // Double-Click 'Name' text box
+            Mouse.DoubleClick(uINameEdit, new Point(64, 35));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(52, 38));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod7Params.UINoteTitleTextBoxEditText;
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod7Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(35, 52));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(18, 44));
+
+            // Type 'test 11' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod7Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'test 22' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod7Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(17, 3));
+
+            // Double-Click 'test 11 => 7/18/2018 10:56:12 AM' list item
+            Mouse.DoubleClick(uITest117182018105612AListItem, new Point(173, 24));
+
+            // Click 'test 11 => 7/18/2018 10:56:12 AM' list item
+            Mouse.Click(uITest117182018105612AListItem, new Point(173, 24));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(31, 50));
+
+            // Type 'test 11 edited' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod7Params.UINoteTitleTextBoxEditText2;
+
+            // Type 'test 22 edited' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod7Params.UINoteDescriptionTextBEditText2;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(16, 27));
+
+            // Double-Click 'test 11 edited => 7/18/2018 10:56:12 AM' list item
+            Mouse.DoubleClick(uITest11edited71820181ListItem, new Point(219, 20));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(37, 40));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(90, 21));
+        }
+        
+        /// <summary>
+        /// RecordedMethod8 - Use 'RecordedMethod8Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod8()
+        {
+            #region Variable Declarations
+            WinEdit uINameEdit = this.UIDebugWindow.UIItemWindow.UIFinalProjectexeListItem.UINameEdit;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            #endregion
+
+            // Double-Click 'Name' text box
+            Mouse.DoubleClick(uINameEdit, new Point(62, 13));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(57, 37));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod8Params.UINoteTitleTextBoxEditText;
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod8Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(38, 45));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(0, 25));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(29, 31));
+
+            // Type 'test 11' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod8Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'test 22' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod8Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(24, 47));
+
+            // Select 'test 11 => 7/18/2018 11:14:40 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod8Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(8, 10));
+
+            // Type 'test 11 edited' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod8Params.UINoteTitleTextBoxEditText2;
+
+            // Type 'test 22 edited' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod8Params.UINoteDescriptionTextBEditText2;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(15, 48));
+
+            // Select 'test 11 edited => 7/18/2018 11:14:40 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod8Params.UINotesTitlesListBoxListSelectedItemsAsString1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(28, 34));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(112, 64));
+        }
+        
+        /// <summary>
+        /// RecordedMethod9 - Use 'RecordedMethod9Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod9()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfButton uIColorButton = this.UINoteManagerWindow.UIColorButton;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(109, 98));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(36, 22));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod9Params.UINoteTitleTextBoxEditText;
+
+            // Type '{Tab}' in 'NoteTitleTextBox' text box
+            Keyboard.SendKeys(uINoteTitleTextBoxEdit, this.RecordedMethod9Params.UINoteTitleTextBoxEditSendKeys, ModifierKeys.None);
+
+            // Type '{Tab}' in '+' button
+            Keyboard.SendKeys(uIItemButton1, this.RecordedMethod9Params.UIItemButtonSendKeys, ModifierKeys.None);
+
+            // Type '{Tab}' in 'Color' button
+            Keyboard.SendKeys(uIColorButton, this.RecordedMethod9Params.UIColorButtonSendKeys, ModifierKeys.None);
+
+            // Type '{Tab}' in 'Delete' button
+            Keyboard.SendKeys(uIDeleteButton, this.RecordedMethod9Params.UIDeleteButtonSendKeys, ModifierKeys.None);
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod9Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(44, 56));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(55, 41));
+
+            // Type 'test 11' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod9Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'test 22' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod9Params.UINoteDescriptionTextBEditText1;
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(133, 58));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(45, 44));
+
+            // Type 'test 11' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod9Params.UINoteTitleTextBoxEditText2;
+
+            // Type 'test 22' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod9Params.UINoteDescriptionTextBEditText2;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(22, 20));
+
+            // Select 'test 11 => 7/18/2018 11:24:40 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod9Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(53, 49));
+
+            // Type 'test 11 edited' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod9Params.UINoteTitleTextBoxEditText3;
+
+            // Type 'test 22 edited' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod9Params.UINoteDescriptionTextBEditText3;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(26, 27));
+
+            // Select 'test 11 edited => 7/18/2018 11:24:40 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod9Params.UINotesTitlesListBoxListSelectedItemsAsString1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(52, 46));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(99, 63));
+
+            // Select 'test 1 => 7/18/2018 11:24:25 AM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod9Params.UINotesTitlesListBoxListSelectedItemsAsString2;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(49, 33));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(72, 55));
+        }
+        
+        /// <summary>
+        /// RecordedMethod10 - Use 'RecordedMethod10Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod10()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfWindow uINoteManagerWindow = this.UINoteManagerWindow;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIColorButton = this.UINoteManagerWindow.UIColorButton;
+            WpfButton uIGreenButton = this.UIColorChangeWindow.UIGreenButton;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            WpfButton uIPinkButton = this.UIColorChangeWindow.UIPinkButton;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(76, 69));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(44, 54));
+
+            // Click 'NoteManager' window
+            Mouse.Click(uINoteManagerWindow, new Point(476, 87));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod10Params.UINoteTitleTextBoxEditText;
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod10Params.UINoteDescriptionTextBEditText;
+
+            // Click 'Color' button
+            Mouse.Click(uIColorButton, new Point(111, 65));
+
+            // Click 'Green' button
+            Mouse.Click(uIGreenButton, new Point(256, 266));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(39, 46));
+
+            // Select 'test 1 => 7/18/2018 3:28:54 PM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod10Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(41, 31));
+
+            // Type 'test 1 ffgf' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod10Params.UINoteTitleTextBoxEditText1;
+
+            // Click 'Color' button
+            Mouse.Click(uIColorButton, new Point(71, 41));
+
+            // Click 'Pink' button
+            Mouse.Click(uIPinkButton, new Point(139, 179));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(37, 48));
+        }
+        
+        /// <summary>
+        /// RecordedMethod11 - Use 'RecordedMethod11Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod11()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIColorButton = this.UINoteManagerWindow.UIColorButton;
+            WpfButton uIGreenButton = this.UIColorChangeWindow.UIGreenButton;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfListItem uIAsd718201844213PMListItem = this.UIMainWindowWindow.UINotesTitlesListBoxList.UIAsd718201844213PMListItem;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(66, 97));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(39, 43));
+
+            // Type 'test 1' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod11Params.UINoteTitleTextBoxEditText;
+
+            // Type 'test 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod11Params.UINoteDescriptionTextBEditText;
+
+            // Click 'Color' button
+            Mouse.Click(uIColorButton, new Point(103, 47));
+
+            // Click 'Green' button
+            Mouse.Click(uIGreenButton, new Point(170, 209));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(36, 44));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(25, 27));
+
+            // Type 'asd' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod11Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'asdasd' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod11Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(18, 11));
+
+            // Double-Click 'asd => 7/18/2018 4:42:13 PM' list item
+            Mouse.DoubleClick(uIAsd718201844213PMListItem, new Point(141, 23));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(50, 30));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(125, 54));
+        }
+        
+        /// <summary>
+        /// RecordedMethod12 - Use 'RecordedMethod12Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod12()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIColorButton = this.UINoteManagerWindow.UIColorButton;
+            WpfButton uIPinkButton = this.UIColorChangeWindow.UIPinkButton;
+            WpfWindow uINoteManagerWindow = this.UINoteManagerWindow;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            WpfButton uIOrangeButton = this.UIColorChangeWindow.UIOrangeButton;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(48, 70));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(21, 59));
+
+            // Type 'test 12' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod12Params.UINoteTitleTextBoxEditText;
+
+            // Type 'test 21' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod12Params.UINoteDescriptionTextBEditText;
+
+            // Click 'Color' button
+            Mouse.Click(uIColorButton, new Point(93, 26));
+
+            // Click 'Pink' button
+            Mouse.Click(uIPinkButton, new Point(171, 207));
+
+            // Double-Click 'NoteManager' window
+            Mouse.DoubleClick(uINoteManagerWindow, new Point(10, 27));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(12, 13));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(17, 21));
+
+            // Type 'this is it' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod12Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'this is the test' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod12Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(26, 54));
+
+            // Select 'this is it => 7/18/2018 4:47:19 PM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod12Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(42, 37));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(85, 35));
+
+            // Select 'test 12 => 7/18/2018 4:47:03 PM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod12Params.UINotesTitlesListBoxListSelectedItemsAsString1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(58, 49));
+
+            // Type 'test 12(edited)' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod12Params.UINoteTitleTextBoxEditText2;
+
+            // Click 'Color' button
+            Mouse.Click(uIColorButton, new Point(62, 39));
+
+            // Click 'Orange' button
+            Mouse.Click(uIOrangeButton, new Point(151, 177));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(12, 24));
+
+            // Select 'test 12(edited) => 7/18/2018 4:47:03 PM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod12Params.UINotesTitlesListBoxListSelectedItemsAsString2;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(32, 31));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(84, 37));
+        }
+        
+        /// <summary>
+        /// RecordedMethod13 - Use 'RecordedMethod13Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod13()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfWindow uINoteManagerWindow = this.UINoteManagerWindow;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            #endregion
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(86, 90));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(40, 6));
+
+            // Click 'NoteManager' window
+            Mouse.Click(uINoteManagerWindow, new Point(260, 96));
+
+            // Type 'zxczxc' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod13Params.UINoteTitleTextBoxEditText;
+
+            // Type 'zxczxc' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod13Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(21, 21));
+
+            // Select 'zxczxc => 7/18/2018 5:13:27 PM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod13Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(34, 28));
+
+            // Type 'zxczxczxc' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod13Params.UINoteDescriptionTextBEditText1;
+
+            // Type 'zxczxc cccc' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod13Params.UINoteTitleTextBoxEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(22, 44));
+        }
+        
+        /// <summary>
+        /// RecordedMethod14 - Use 'RecordedMethod14Params' to pass parameters into this method.
+        /// </summary>
+        public void RecordedMethod14()
+        {
+            #region Variable Declarations
+            WinListItem uIFinalProjectexeListItem = this.UIDebugWindow.UIItemWindow.UIItemsViewList.UIFinalProjectexeListItem;
+            WpfButton uIItemButton = this.UIMainWindowWindow.UIItemButton;
+            WpfWindow uINoteManagerWindow = this.UINoteManagerWindow;
+            WpfEdit uINoteTitleTextBoxEdit = this.UINoteManagerWindow.UINoteTitleTextBoxEdit;
+            WpfEdit uINoteDescriptionTextBEdit = this.UINoteManagerWindow.UINoteDescriptionTextBEdit;
+            WpfButton uIItemButton1 = this.UINoteManagerWindow.UIItemButton;
+            WpfList uINotesTitlesListBoxList = this.UIMainWindowWindow.UINotesTitlesListBoxList;
+            WpfButton uIColorButton = this.UINoteManagerWindow.UIColorButton;
+            WpfButton uIPinkButton = this.UIColorChangeWindow.UIPinkButton;
+            WpfButton uIDeleteButton = this.UINoteManagerWindow.UIDeleteButton;
+            WinEdit uINameEdit = this.UIDebugWindow.UIItemWindow.UIFinalProjectexeListItem.UINameEdit;
+            WpfButton uIGreenButton = this.UIColorChangeWindow.UIGreenButton;
+            #endregion
+
+            // Last mouse action was not recorded.
+
+            // Double-Click 'FinalProject.exe' list item
+            Mouse.DoubleClick(uIFinalProjectexeListItem, new Point(31, 89));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(44, 40));
+
+            // Click 'NoteManager' window
+            Mouse.Click(uINoteManagerWindow, new Point(317, 91));
+
+            // Type 'test 2' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod14Params.UINoteTitleTextBoxEditText;
+
+            // Type 'test' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod14Params.UINoteDescriptionTextBEditText;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(45, 45));
+
+            // Select 'test 2 => 7/18/2018 5:41:57 PM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod14Params.UINotesTitlesListBoxListSelectedItemsAsString;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(39, 45));
+
+            // Click 'Color' button
+            Mouse.Click(uIColorButton, new Point(86, 40));
+
+            // Click 'Pink' button
+            Mouse.Click(uIPinkButton, new Point(167, 94));
+
+            // Click 'Delete' button
+            Mouse.Click(uIDeleteButton, new Point(124, 21));
+
+            // Double-Click 'Name' text box
+            Mouse.DoubleClick(uINameEdit, new Point(74, 19));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(13, 47));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(38, 29));
+
+            // Type 'test' in 'NoteTitleTextBox' text box
+            uINoteTitleTextBoxEdit.Text = this.RecordedMethod14Params.UINoteTitleTextBoxEditText1;
+
+            // Type 'tset 2' in 'NoteDescriptionTextBox' text box
+            uINoteDescriptionTextBEdit.Text = this.RecordedMethod14Params.UINoteDescriptionTextBEditText1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(24, 57));
+
+            // Select 'test => 7/18/2018 5:42:38 PM' in 'NotesTitlesListBox' list box
+            uINotesTitlesListBoxList.SelectedItemsAsString = this.RecordedMethod14Params.UINotesTitlesListBoxListSelectedItemsAsString1;
+
+            // Click '+' button
+            Mouse.Click(uIItemButton, new Point(61, 16));
+
+            // Click 'Color' button
+            Mouse.Click(uIColorButton, new Point(75, 51));
+
+            // Click 'Green' button
+            Mouse.Click(uIGreenButton, new Point(290, 200));
+
+            // Click '+' button
+            Mouse.Click(uIItemButton1, new Point(24, 28));
+        }
+        
         #region Properties
         public virtual RecordedMethod1Params RecordedMethod1Params
         {
@@ -135,6 +1011,162 @@ namespace CodedUITestProject1
                     this.mRecordedMethod2Params = new RecordedMethod2Params();
                 }
                 return this.mRecordedMethod2Params;
+            }
+        }
+        
+        public virtual RecordedMethod3Params RecordedMethod3Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod3Params == null))
+                {
+                    this.mRecordedMethod3Params = new RecordedMethod3Params();
+                }
+                return this.mRecordedMethod3Params;
+            }
+        }
+        
+        public virtual RecordedMethod4Params RecordedMethod4Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod4Params == null))
+                {
+                    this.mRecordedMethod4Params = new RecordedMethod4Params();
+                }
+                return this.mRecordedMethod4Params;
+            }
+        }
+        
+        public virtual RecordedMethod5Params RecordedMethod5Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod5Params == null))
+                {
+                    this.mRecordedMethod5Params = new RecordedMethod5Params();
+                }
+                return this.mRecordedMethod5Params;
+            }
+        }
+        
+        public virtual RecordedMethod6Params RecordedMethod6Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod6Params == null))
+                {
+                    this.mRecordedMethod6Params = new RecordedMethod6Params();
+                }
+                return this.mRecordedMethod6Params;
+            }
+        }
+        
+        public virtual AssertMethod1ExpectedValues AssertMethod1ExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertMethod1ExpectedValues == null))
+                {
+                    this.mAssertMethod1ExpectedValues = new AssertMethod1ExpectedValues();
+                }
+                return this.mAssertMethod1ExpectedValues;
+            }
+        }
+        
+        public virtual RecordedMethod7Params RecordedMethod7Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod7Params == null))
+                {
+                    this.mRecordedMethod7Params = new RecordedMethod7Params();
+                }
+                return this.mRecordedMethod7Params;
+            }
+        }
+        
+        public virtual RecordedMethod8Params RecordedMethod8Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod8Params == null))
+                {
+                    this.mRecordedMethod8Params = new RecordedMethod8Params();
+                }
+                return this.mRecordedMethod8Params;
+            }
+        }
+        
+        public virtual RecordedMethod9Params RecordedMethod9Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod9Params == null))
+                {
+                    this.mRecordedMethod9Params = new RecordedMethod9Params();
+                }
+                return this.mRecordedMethod9Params;
+            }
+        }
+        
+        public virtual RecordedMethod10Params RecordedMethod10Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod10Params == null))
+                {
+                    this.mRecordedMethod10Params = new RecordedMethod10Params();
+                }
+                return this.mRecordedMethod10Params;
+            }
+        }
+        
+        public virtual RecordedMethod11Params RecordedMethod11Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod11Params == null))
+                {
+                    this.mRecordedMethod11Params = new RecordedMethod11Params();
+                }
+                return this.mRecordedMethod11Params;
+            }
+        }
+        
+        public virtual RecordedMethod12Params RecordedMethod12Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod12Params == null))
+                {
+                    this.mRecordedMethod12Params = new RecordedMethod12Params();
+                }
+                return this.mRecordedMethod12Params;
+            }
+        }
+        
+        public virtual RecordedMethod13Params RecordedMethod13Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod13Params == null))
+                {
+                    this.mRecordedMethod13Params = new RecordedMethod13Params();
+                }
+                return this.mRecordedMethod13Params;
+            }
+        }
+        
+        public virtual RecordedMethod14Params RecordedMethod14Params
+        {
+            get
+            {
+                if ((this.mRecordedMethod14Params == null))
+                {
+                    this.mRecordedMethod14Params = new RecordedMethod14Params();
+                }
+                return this.mRecordedMethod14Params;
             }
         }
         
@@ -185,12 +1217,50 @@ namespace CodedUITestProject1
                 return this.mUIWpfWindow;
             }
         }
+        
+        public UIColorChangeWindow UIColorChangeWindow
+        {
+            get
+            {
+                if ((this.mUIColorChangeWindow == null))
+                {
+                    this.mUIColorChangeWindow = new UIColorChangeWindow();
+                }
+                return this.mUIColorChangeWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private RecordedMethod1Params mRecordedMethod1Params;
         
         private RecordedMethod2Params mRecordedMethod2Params;
+        
+        private RecordedMethod3Params mRecordedMethod3Params;
+        
+        private RecordedMethod4Params mRecordedMethod4Params;
+        
+        private RecordedMethod5Params mRecordedMethod5Params;
+        
+        private RecordedMethod6Params mRecordedMethod6Params;
+        
+        private AssertMethod1ExpectedValues mAssertMethod1ExpectedValues;
+        
+        private RecordedMethod7Params mRecordedMethod7Params;
+        
+        private RecordedMethod8Params mRecordedMethod8Params;
+        
+        private RecordedMethod9Params mRecordedMethod9Params;
+        
+        private RecordedMethod10Params mRecordedMethod10Params;
+        
+        private RecordedMethod11Params mRecordedMethod11Params;
+        
+        private RecordedMethod12Params mRecordedMethod12Params;
+        
+        private RecordedMethod13Params mRecordedMethod13Params;
+        
+        private RecordedMethod14Params mRecordedMethod14Params;
         
         private UIDebugWindow mUIDebugWindow;
         
@@ -199,6 +1269,8 @@ namespace CodedUITestProject1
         private UINoteManagerWindow mUINoteManagerWindow;
         
         private UIWpfWindow mUIWpfWindow;
+        
+        private UIColorChangeWindow mUIColorChangeWindow;
         #endregion
     }
     
@@ -254,6 +1326,591 @@ namespace CodedUITestProject1
         /// Type 'this is the test' in 'NoteDescriptionTextBox' text box
         /// </summary>
         public string UINoteDescriptionTextBEditText1 = "this is the test";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod3'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod3Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type '' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "";
+        
+        /// <summary>
+        /// Type '{Back}{Back}{Back}{Back}{Back}{Back}' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditSendKeys = "{Back}{Back}{Back}{Back}{Back}{Back}";
+        
+        /// <summary>
+        /// Press keyboard shortcut keys '{LWin}'
+        /// </summary>
+        public string SendKeys = "{LWin}";
+        
+        /// <summary>
+        /// Press keyboard shortcut keys '{LWin}'
+        /// </summary>
+        public string SendKeys1 = "{LWin}";
+        
+        /// <summary>
+        /// Press keyboard shortcut keys 'Windows + {Space}'
+        /// </summary>
+        public string SendKeys2 = "{Space}";
+        
+        /// <summary>
+        /// Type 'this is the title' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "this is the title";
+        
+        /// <summary>
+        /// Type 'this is the test!' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "this is the test!";
+        
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "test 1";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditSendKeys1 = "{Tab}";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "test 2";
+        
+        /// <summary>
+        /// Select 'test 1 => 7/18/2018 10:33:03 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "test 1 => 7/18/2018 10:33:03 AM";
+        
+        /// <summary>
+        /// Type 'test 1 edited' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText3 = "test 1 edited";
+        
+        /// <summary>
+        /// Select 'test 1 edited => 7/18/2018 10:33:03 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString1 = "test 1 edited => 7/18/2018 10:33:03 AM";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod4'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod4Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'this is the test' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "this is the test";
+        
+        /// <summary>
+        /// Type 'this is it' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "this is it";
+        
+        /// <summary>
+        /// Select 'this is the test => 7/18/2018 10:38:21 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "this is the test => 7/18/2018 10:38:21 AM";
+        
+        /// <summary>
+        /// Type 'this is the test (edited)' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "this is the test (edited)";
+        
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "test 1";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "test 2";
+        
+        /// <summary>
+        /// Select 'this is the test (edited) => 7/18/2018 10:38:21 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString1 = "this is the test (edited) => 7/18/2018 10:38:21 AM";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod5'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod5Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'this is it!' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "this is it!";
+        
+        /// <summary>
+        /// Type 'this is the test' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "this is the test";
+        
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "test 1";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "test 2";
+        
+        /// <summary>
+        /// Type 'this is it!(edited)' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "this is it!(edited)";
+        
+        /// <summary>
+        /// Type 'this is the test(edited)' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText2 = "this is the test(edited)";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod6'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod6Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'this is it!' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "this is it!";
+        
+        /// <summary>
+        /// Type 'this is the test' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "this is the test";
+        
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "test 1";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "test 2";
+        
+        /// <summary>
+        /// Type 'yeah' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "yeah";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'yessss' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText2 = "yessss";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertMethod1'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertMethod1ExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'ControlType' property of 'NoteTitleTextBox' text box equals 'test 1'
+        /// </summary>
+        public string UINoteTitleTextBoxEditControlType = "test 1";
+        
+        /// <summary>
+        /// Verify that the 'ControlType' property of 'NoteDescriptionTextBox' text box equals 'test 2'
+        /// </summary>
+        public string UINoteDescriptionTextBEditControlType = "test 2";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod7'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod7Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "test 1";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "test 2";
+        
+        /// <summary>
+        /// Type 'test 11' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "test 11";
+        
+        /// <summary>
+        /// Type 'test 22' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "test 22";
+        
+        /// <summary>
+        /// Type 'test 11 edited' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "test 11 edited";
+        
+        /// <summary>
+        /// Type 'test 22 edited' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText2 = "test 22 edited";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod8'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod8Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "test 1";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "test 2";
+        
+        /// <summary>
+        /// Type 'test 11' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "test 11";
+        
+        /// <summary>
+        /// Type 'test 22' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "test 22";
+        
+        /// <summary>
+        /// Select 'test 11 => 7/18/2018 11:14:40 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "test 11 => 7/18/2018 11:14:40 AM";
+        
+        /// <summary>
+        /// Type 'test 11 edited' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "test 11 edited";
+        
+        /// <summary>
+        /// Type 'test 22 edited' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText2 = "test 22 edited";
+        
+        /// <summary>
+        /// Select 'test 11 edited => 7/18/2018 11:14:40 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString1 = "test 11 edited => 7/18/2018 11:14:40 AM";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod9'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod9Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "test 1";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '{Tab}' in '+' button
+        /// </summary>
+        public string UIItemButtonSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'Color' button
+        /// </summary>
+        public string UIColorButtonSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'Delete' button
+        /// </summary>
+        public string UIDeleteButtonSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "test 2";
+        
+        /// <summary>
+        /// Type 'test 11' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "test 11";
+        
+        /// <summary>
+        /// Type 'test 22' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "test 22";
+        
+        /// <summary>
+        /// Type 'test 11' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "test 11";
+        
+        /// <summary>
+        /// Type 'test 22' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText2 = "test 22";
+        
+        /// <summary>
+        /// Select 'test 11 => 7/18/2018 11:24:40 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "test 11 => 7/18/2018 11:24:40 AM";
+        
+        /// <summary>
+        /// Type 'test 11 edited' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText3 = "test 11 edited";
+        
+        /// <summary>
+        /// Type 'test 22 edited' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText3 = "test 22 edited";
+        
+        /// <summary>
+        /// Select 'test 11 edited => 7/18/2018 11:24:40 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString1 = "test 11 edited => 7/18/2018 11:24:40 AM";
+        
+        /// <summary>
+        /// Select 'test 1 => 7/18/2018 11:24:25 AM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString2 = "test 1 => 7/18/2018 11:24:25 AM";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod10'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod10Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "test 1";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "test 2";
+        
+        /// <summary>
+        /// Select 'test 1 => 7/18/2018 3:28:54 PM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "test 1 => 7/18/2018 3:28:54 PM";
+        
+        /// <summary>
+        /// Type 'test 1 ffgf' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "test 1 ffgf";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod11'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod11Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test 1' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "test 1";
+        
+        /// <summary>
+        /// Type 'test 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "test 2";
+        
+        /// <summary>
+        /// Type 'asd' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "asd";
+        
+        /// <summary>
+        /// Type 'asdasd' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "asdasd";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod12'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod12Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test 12' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "test 12";
+        
+        /// <summary>
+        /// Type 'test 21' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "test 21";
+        
+        /// <summary>
+        /// Type 'this is it' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "this is it";
+        
+        /// <summary>
+        /// Type 'this is the test' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "this is the test";
+        
+        /// <summary>
+        /// Select 'this is it => 7/18/2018 4:47:19 PM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "this is it => 7/18/2018 4:47:19 PM";
+        
+        /// <summary>
+        /// Select 'test 12 => 7/18/2018 4:47:03 PM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString1 = "test 12 => 7/18/2018 4:47:03 PM";
+        
+        /// <summary>
+        /// Type 'test 12(edited)' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText2 = "test 12(edited)";
+        
+        /// <summary>
+        /// Select 'test 12(edited) => 7/18/2018 4:47:03 PM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString2 = "test 12(edited) => 7/18/2018 4:47:03 PM";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod13'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod13Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'zxczxc' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "zxczxc";
+        
+        /// <summary>
+        /// Type 'zxczxc' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "zxczxc";
+        
+        /// <summary>
+        /// Select 'zxczxc => 7/18/2018 5:13:27 PM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "zxczxc => 7/18/2018 5:13:27 PM";
+        
+        /// <summary>
+        /// Type 'zxczxczxc' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "zxczxczxc";
+        
+        /// <summary>
+        /// Type 'zxczxc cccc' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "zxczxc cccc";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'RecordedMethod14'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class RecordedMethod14Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'test 2' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText = "test 2";
+        
+        /// <summary>
+        /// Type 'test' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText = "test";
+        
+        /// <summary>
+        /// Select 'test 2 => 7/18/2018 5:41:57 PM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString = "test 2 => 7/18/2018 5:41:57 PM";
+        
+        /// <summary>
+        /// Type 'test' in 'NoteTitleTextBox' text box
+        /// </summary>
+        public string UINoteTitleTextBoxEditText1 = "test";
+        
+        /// <summary>
+        /// Type 'tset 2' in 'NoteDescriptionTextBox' text box
+        /// </summary>
+        public string UINoteDescriptionTextBEditText1 = "tset 2";
+        
+        /// <summary>
+        /// Select 'test => 7/18/2018 5:42:38 PM' in 'NotesTitlesListBox' list box
+        /// </summary>
+        public string UINotesTitlesListBoxListSelectedItemsAsString1 = "test => 7/18/2018 5:42:38 PM";
         #endregion
     }
     
@@ -315,10 +1972,24 @@ namespace CodedUITestProject1
                 return this.mUIItemsViewList;
             }
         }
+        
+        public UIFinalProjectexeListItem UIFinalProjectexeListItem
+        {
+            get
+            {
+                if ((this.mUIFinalProjectexeListItem == null))
+                {
+                    this.mUIFinalProjectexeListItem = new UIFinalProjectexeListItem(this);
+                }
+                return this.mUIFinalProjectexeListItem;
+            }
+        }
         #endregion
         
         #region Fields
         private UIItemsViewList mUIItemsViewList;
+        
+        private UIFinalProjectexeListItem mUIFinalProjectexeListItem;
         #endregion
     }
     
@@ -359,6 +2030,42 @@ namespace CodedUITestProject1
     }
     
     [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIFinalProjectexeListItem : WinListItem
+    {
+        
+        public UIFinalProjectexeListItem(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinListItem.PropertyNames.Name] = "FinalProject.exe";
+            this.WindowTitles.Add("Debug");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UINameEdit
+        {
+            get
+            {
+                if ((this.mUINameEdit == null))
+                {
+                    this.mUINameEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUINameEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Name";
+                    this.mUINameEdit.WindowTitles.Add("Debug");
+                    #endregion
+                }
+                return this.mUINameEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUINameEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
     public class UIMainWindowWindow : WpfWindow
     {
         
@@ -387,10 +2094,132 @@ namespace CodedUITestProject1
                 return this.mUIItemButton;
             }
         }
+        
+        public UINotesTitlesListBoxList UINotesTitlesListBoxList
+        {
+            get
+            {
+                if ((this.mUINotesTitlesListBoxList == null))
+                {
+                    this.mUINotesTitlesListBoxList = new UINotesTitlesListBoxList(this);
+                }
+                return this.mUINotesTitlesListBoxList;
+            }
+        }
         #endregion
         
         #region Fields
         private WpfButton mUIItemButton;
+        
+        private UINotesTitlesListBoxList mUINotesTitlesListBoxList;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UINotesTitlesListBoxList : WpfList
+    {
+        
+        public UINotesTitlesListBoxList(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfList.PropertyNames.AutomationId] = "NotesTitlesListBox";
+            this.WindowTitles.Add("MainWindow");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfListItem UITest17182018104023AMListItem
+        {
+            get
+            {
+                if ((this.mUITest17182018104023AMListItem == null))
+                {
+                    this.mUITest17182018104023AMListItem = new WpfListItem(this);
+                    #region Search Criteria
+                    this.mUITest17182018104023AMListItem.SearchProperties[WpfListItem.PropertyNames.Name] = "test 1 => 7/18/2018 10:40:23 AM";
+                    this.mUITest17182018104023AMListItem.WindowTitles.Add("MainWindow");
+                    #endregion
+                }
+                return this.mUITest17182018104023AMListItem;
+            }
+        }
+        
+        public WpfListItem UIThisisit718201810401ListItem
+        {
+            get
+            {
+                if ((this.mUIThisisit718201810401ListItem == null))
+                {
+                    this.mUIThisisit718201810401ListItem = new WpfListItem(this);
+                    #region Search Criteria
+                    this.mUIThisisit718201810401ListItem.SearchProperties[WpfListItem.PropertyNames.Name] = "this is it! => 7/18/2018 10:40:14 AM";
+                    this.mUIThisisit718201810401ListItem.WindowTitles.Add("MainWindow");
+                    #endregion
+                }
+                return this.mUIThisisit718201810401ListItem;
+            }
+        }
+        
+        public WpfListItem UITest117182018105612AListItem
+        {
+            get
+            {
+                if ((this.mUITest117182018105612AListItem == null))
+                {
+                    this.mUITest117182018105612AListItem = new WpfListItem(this);
+                    #region Search Criteria
+                    this.mUITest117182018105612AListItem.SearchProperties[WpfListItem.PropertyNames.Name] = "test 11 => 7/18/2018 10:56:12 AM";
+                    this.mUITest117182018105612AListItem.WindowTitles.Add("MainWindow");
+                    #endregion
+                }
+                return this.mUITest117182018105612AListItem;
+            }
+        }
+        
+        public WpfListItem UITest11edited71820181ListItem
+        {
+            get
+            {
+                if ((this.mUITest11edited71820181ListItem == null))
+                {
+                    this.mUITest11edited71820181ListItem = new WpfListItem(this);
+                    #region Search Criteria
+                    this.mUITest11edited71820181ListItem.SearchProperties[WpfListItem.PropertyNames.Name] = "test 11 edited => 7/18/2018 10:56:12 AM";
+                    this.mUITest11edited71820181ListItem.WindowTitles.Add("MainWindow");
+                    #endregion
+                }
+                return this.mUITest11edited71820181ListItem;
+            }
+        }
+        
+        public WpfListItem UIAsd718201844213PMListItem
+        {
+            get
+            {
+                if ((this.mUIAsd718201844213PMListItem == null))
+                {
+                    this.mUIAsd718201844213PMListItem = new WpfListItem(this);
+                    #region Search Criteria
+                    this.mUIAsd718201844213PMListItem.SearchProperties[WpfListItem.PropertyNames.Name] = "asd => 7/18/2018 4:42:13 PM";
+                    this.mUIAsd718201844213PMListItem.WindowTitles.Add("MainWindow");
+                    #endregion
+                }
+                return this.mUIAsd718201844213PMListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfListItem mUITest17182018104023AMListItem;
+        
+        private WpfListItem mUIThisisit718201810401ListItem;
+        
+        private WpfListItem mUITest117182018105612AListItem;
+        
+        private WpfListItem mUITest11edited71820181ListItem;
+        
+        private WpfListItem mUIAsd718201844213PMListItem;
         #endregion
     }
     
@@ -455,6 +2284,38 @@ namespace CodedUITestProject1
                 return this.mUIItemButton;
             }
         }
+        
+        public WpfButton UIDeleteButton
+        {
+            get
+            {
+                if ((this.mUIDeleteButton == null))
+                {
+                    this.mUIDeleteButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIDeleteButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "BtnDelEdit";
+                    this.mUIDeleteButton.WindowTitles.Add("NoteManager");
+                    #endregion
+                }
+                return this.mUIDeleteButton;
+            }
+        }
+        
+        public WpfButton UIColorButton
+        {
+            get
+            {
+                if ((this.mUIColorButton == null))
+                {
+                    this.mUIColorButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIColorButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "ColorChange";
+                    this.mUIColorButton.WindowTitles.Add("NoteManager");
+                    #endregion
+                }
+                return this.mUIColorButton;
+            }
+        }
         #endregion
         
         #region Fields
@@ -463,6 +2324,10 @@ namespace CodedUITestProject1
         private WpfEdit mUINoteDescriptionTextBEdit;
         
         private WpfButton mUIItemButton;
+        
+        private WpfButton mUIDeleteButton;
+        
+        private WpfButton mUIColorButton;
         #endregion
     }
     
@@ -476,5 +2341,77 @@ namespace CodedUITestProject1
             this.SearchProperties.Add(new PropertyExpression(WpfWindow.PropertyNames.ClassName, "HwndWrapper", PropertyExpressionOperator.Contains));
             #endregion
         }
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIColorChangeWindow : WpfWindow
+    {
+        
+        public UIColorChangeWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfWindow.PropertyNames.Name] = "ColorChange";
+            this.SearchProperties.Add(new PropertyExpression(WpfWindow.PropertyNames.ClassName, "HwndWrapper", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("ColorChange");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfButton UIGreenButton
+        {
+            get
+            {
+                if ((this.mUIGreenButton == null))
+                {
+                    this.mUIGreenButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIGreenButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "Green";
+                    this.mUIGreenButton.WindowTitles.Add("ColorChange");
+                    #endregion
+                }
+                return this.mUIGreenButton;
+            }
+        }
+        
+        public WpfButton UIPinkButton
+        {
+            get
+            {
+                if ((this.mUIPinkButton == null))
+                {
+                    this.mUIPinkButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIPinkButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "Pink";
+                    this.mUIPinkButton.WindowTitles.Add("ColorChange");
+                    #endregion
+                }
+                return this.mUIPinkButton;
+            }
+        }
+        
+        public WpfButton UIOrangeButton
+        {
+            get
+            {
+                if ((this.mUIOrangeButton == null))
+                {
+                    this.mUIOrangeButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUIOrangeButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "Orange";
+                    this.mUIOrangeButton.WindowTitles.Add("ColorChange");
+                    #endregion
+                }
+                return this.mUIOrangeButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfButton mUIGreenButton;
+        
+        private WpfButton mUIPinkButton;
+        
+        private WpfButton mUIOrangeButton;
+        #endregion
     }
 }
