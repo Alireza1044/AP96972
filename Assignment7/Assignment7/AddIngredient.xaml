@@ -1,0 +1,75 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment7"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="Add_Ingredient" x:Class="Assignment7.Window1"
+        mc:Ignorable="d"
+        Title="Add ingredient" Height="365.054" Width="385.187" ShowInTaskbar="False">
+    <Grid 
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center" Height="243" Margin="12,7,12.5,48">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="IngName" Margin="81,15,25.5,15" Grid.Row="1" TextChanged="IngName_TextChanged">
+            <TextBox.HorizontalAlignment>
+                <HorizontalAlignment>center</HorizontalAlignment>
+            </TextBox.HorizontalAlignment>
+            <TextBox.Width>
+                <System:Double>220</System:Double>
+            </TextBox.Width>
+        </TextBox>
+        <TextBlock Margin="30,16,265.5,18" TextAlignment="Center" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Grid.Row="1" Height="16" Width="31">Name</TextBlock>
+        <TextBox x:Name="IngDescription" Margin="81,15,25.5,15" Grid.Row="2" TextChanged="IngDescription_TextChanged">
+            <TextBox.HorizontalAlignment>
+                <HorizontalAlignment>center</HorizontalAlignment>
+            </TextBox.HorizontalAlignment>
+            <TextBox.Width>
+                <System:Double>220</System:Double>
+            </TextBox.Width>
+        </TextBox>
+        <TextBlock Margin="19,43,252.5,37" TextAlignment="Center" 
+                   Text="Description"
+                   FontSize="11"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Grid.Row="2" Height="15" Width="55">
+        </TextBlock>
+        <TextBlock Text="Unit" Margin="30,17.5,274,15"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" Grid.Row="3" Height="16" Width="22" />
+        <ComboBox x:Name="IngUnit" Margin="81,9,188.5,11"
+                  SelectionChanged="Unit_SelectionChanged_1" 
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center" Width="57" Grid.Row="3" Height="26">
+            <System:String>kg</System:String>
+            <System:String>gr</System:String>
+            <System:String>lbs</System:String>
+        </ComboBox>
+        <TextBlock Text="Quantity" 
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" Margin="19,9,262.5,13.5" Grid.Row="4" Height="16" Width="45"/>
+        <TextBox x:Name="IngQuantity"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center" Margin="81,9,25.5,13.5" Width="220" Height="16" Grid.Row="4" TextChanged="IngQuantity_TextChanged"/>
+        <Button Name="BtnAddIng" 
+                Margin="100,7,180,-30" 
+                Grid.Row="5" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="50" Height="27" Click="BtnAddIng_Click">OK</Button>
+        <Button
+            Name="BtnCnclIng"
+            Width="50" Height="27" Margin="180,7,100,-30" Grid.Row="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" Click="BtnCnclIng_Click">Cancel</Button>
+    </Grid>
+</Window>

@@ -1,0 +1,97 @@
+﻿<Window x:Name="Add_Recipe" x:Class="Assignment7.RecipeForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment7"
+        mc:Ignorable="d"
+        Title="دستور پخت غذا" Height="400" Width="525"
+        FlowDirection="RightToLeft">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="85*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="35*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="عنوان"
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Center"
+                 Margin="5" />
+        <TextBox x:Name="RecipeName" Grid.Column="1"
+               Height="20"
+               HorizontalAlignment="Stretch"
+                 VerticalAlignment="Center"
+               Margin="5" />
+
+        <TextBlock Text="تعداد افراد"
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Center"
+                 Grid.Row="1"
+                 Margin="5" />
+        <TextBox x:Name="RecipeServingCount" Grid.Column="1"
+               Height="20"
+                Grid.Row="1"
+                 VerticalAlignment="Center"
+               Margin="5" />
+
+        <TextBlock Text="سبک غذا"
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Center"                   
+                 Grid.Row="2"
+                 Margin="5" />
+        <TextBox x:Name="RecipeCuisine" Grid.Column="1"
+               Height="20"
+               Grid.Row="2"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Center"
+               Margin="5" />
+        <TextBlock Text="کلمات کلیدی"
+                 HorizontalAlignment="Right"
+                 Grid.Row="3"
+                 Margin="0,11,5,38" Grid.RowSpan="2" />
+
+        <TextBlock Text="دستورالعمل"
+                 HorizontalAlignment="Right"
+                 Grid.Row="4"
+                 Margin="0,7,5,3" />
+        <TextBox x:Name="RecipeKeywords" Grid.Column="1"
+               Height="20"
+               Grid.Row="3"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Bottom"
+               Margin="5" />
+
+        <TextBox x:Name="RecipeInstructions" Grid.Column="1"
+               Height="20"
+               Grid.Row="4"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Bottom"
+               Margin="5,0,5,7" />
+
+        <TextBlock Text="مواد اولیه"
+                 HorizontalAlignment="Right"
+                 Grid.Row="5"
+                 Margin="0,10,4,7.5" Height="80" />
+
+        <ListBox Grid.Row="5" Grid.Column="1" Name="IngredientsListBox" Margin="5,7,5,10.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="80"/>
+
+        <DockPanel Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,16" Grid.RowSpan="2">
+            <Button Margin="2" Padding="1" HorizontalAlignment="Left" DockPanel.Dock="Left" Name="BtnNew" Click="BtnNew_Click">جدید</Button>
+            <Button Margin="2" Padding="1" HorizontalAlignment="Left" DockPanel.Dock="Left"  Name="BtnDel" Click="BtnDel_Click">حذف</Button>
+            <Button Margin="2" Padding="1" HorizontalAlignment="Left" DockPanel.Dock="Left" Name="BtnView" Click="BtnView_Click">نمایش</Button>
+        </DockPanel>
+        <DockPanel Grid.Row="6" Grid.Column="1">
+            <Button DockPanel.Dock="Right" Margin="2,37,2,-32.5" Padding="2" HorizontalAlignment="Right" Click="Button_Click" >انصراف</Button>
+            <Button x:Name="RecipeConfirm" DockPanel.Dock="Right" Margin="2,37,2,-32.5" Padding="2" HorizontalAlignment="Right" Click="RecipeConfirm_Click" Height="35" VerticalAlignment="Top" Width="43" >ثبت</Button>
+        </DockPanel>
+    </Grid>
+</Window>
