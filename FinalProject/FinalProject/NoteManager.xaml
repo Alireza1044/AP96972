@@ -1,0 +1,20 @@
+﻿<Window x:Class="FinalProject.NoteManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        mc:Ignorable="d"
+        Title="NoteManager" Height="500" Width="500" ResizeMode="NoResize" WindowStyle="None">
+    <StackPanel x:Name="MainEditStack" Background="#FF3BC5CC">
+        <StackPanel x:Name="SecondaryEditStack" Height="50" Background="#FF0051FF">
+            <Grid>
+                <TextBox x:Name="NoteTitleTextBox" Height="35" Width="286" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0" BorderBrush="{x:Null}" TextChanged="NoteTitleTextBox_TextChanged"/>
+                <Button x:Name="AddBtnEdit" Height="35" Width="35" Margin="7.5" HorizontalAlignment="Left" VerticalAlignment="Center" BorderBrush="{x:Null}" Foreground="Black" Content="+" FontFamily="Segoe UI Symbol" FontSize="16" Click="AddBtnEdit_Click" />
+                <Button x:Name="ColorChange" Width="70" Height="35" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,86,0" Content="Color" FontSize="16" Click="ColorChange_Click"></Button>
+                <Button x:Name="BtnDelEdit" Width="70" Height="34" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,8,0" Content="Delete" FontFamily="Segoe UI Symbol" FontSize="16" BorderBrush="{x:Null}" Click="BtnDelEdit_Click"></Button>
+            </Grid>
+        </StackPanel>
+        <TextBox x:Name="NoteDescriptionTextBox" BorderBrush="{x:Null}" FontFamily="Segoe UI Symbol" Height="450" Background="#FF3BC5CC" TextChanged="NoteDescriptionTextBox_TextChanged"/>
+    </StackPanel>
+</Window>
